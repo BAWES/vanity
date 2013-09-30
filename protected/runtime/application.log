@@ -1,0 +1,8 @@
+2013/09/30 18:42:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gi".' in C:\wamp\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('gi')
+#1 C:\wamp\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\vanity\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/vanity/index.php/gi
+---
