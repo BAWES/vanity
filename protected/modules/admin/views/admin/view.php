@@ -21,6 +21,5 @@ $this->menu=array(
 		'admin_id',
 		'admin_name',
 		'admin_email',
-		'admin_username',
 	),
 )); ?>

@@ -12,10 +12,6 @@
 	<?php echo CHtml::encode($data->admin_email); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('admin_username')); ?>:</b>
-	<?php echo CHtml::encode($data->admin_username); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('admin_password')); ?>:</b>
 	<?php echo CHtml::encode("***"); ?>
 	<br />

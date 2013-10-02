@@ -21,11 +21,6 @@
 		<?php echo $form->error($model,'admin_email'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'admin_username'); ?>
-		<?php echo $form->textField($model,'admin_username',array('size'=>50,'maxlength'=>50)); ?>
-		<?php echo $form->error($model,'admin_username'); ?>
-	</div>
 
 
 	<div class="row buttons">
