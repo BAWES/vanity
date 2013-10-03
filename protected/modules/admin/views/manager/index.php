@@ -2,13 +2,13 @@
 /* @var $this ManagerController */
 /* @var $model Manager */
 
-$this->breadcrumbs=array(
-	'Managers'=>array('index'),
-	'Manage',
+$this->breadcrumbs = array(
+    'Managers' => array('index'),
+    'Manage',
 );
 
-$this->menu=array(
-	array('label'=>'Create Manager', 'url'=>array('create')),
+$this->menu = array(
+    array('label' => 'Create Manager', 'url' => array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -28,17 +28,24 @@ $('.search-form form').submit(function(){
 <h1>Manage Managers</h1>
 
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'manager-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-		//'manager_id',
-		'region_id',
-		'manager_name',
-		'manager_email',
-		array(
-			'class'=>'CButtonColumn',
-		),
-	),
-)); ?>
+<?php
+$this->widget('zii.widgets.grid.CGridView', array(
+    'id' => 'manager-grid',
+    'dataProvider' => $model->search(),
+    'filter' => $model,
+    'columns' => array(
+        //'manager_id',
+        array(
+            'name' => 'region_search',
+            'value' => '$data->region->region_name',
+            'filter' => CHtml::listData(Region::model()->findAll(), 'region_name', 'region_name'),
+        ),
+        //'region_id',
+        'manager_name',
+        'manager_email',
+        array(
+            'class' => 'CButtonColumn',
+        ),
+    ),
+));
+?>
