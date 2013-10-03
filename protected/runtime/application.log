@@ -82,3 +82,105 @@ Stack trace:
 REQUEST_URI=/vanity/index.php/admin/admin/create
 HTTP_REFERER=http://localhost/vanity/index.php/admin/admin/index
 ---
+2013/10/03 17:34:10 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'region.region_name' in 'where clause'. The SQL statement executed was: SELECT COUNT(*) FROM `city` `t` WHERE region.region_name LIKE :ycp0.
+in C:\wamp\www\vanity\protected\modules\admin\views\city\index.php (48)
+in C:\wamp\www\vanity\protected\modules\admin\controllers\CityController.php (96)
+in C:\wamp\www\vanity\index.php (13)
+2013/10/03 17:34:10 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'region.region_name' in 'where clause'. The SQL statement executed was: SELECT COUNT(*) FROM `city` `t` WHERE region.region_name LIKE :ycp0' in C:\wamp\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\wamp\yii\framework\db\ar\CActiveRecord.php(1601): CDbCommand->queryScalar()
+#2 C:\wamp\yii\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#3 C:\wamp\yii\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#4 C:\wamp\yii\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#5 C:\wamp\yii\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#6 C:\wamp\yii\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#7 C:\wamp\yii\framework\zii\widgets\grid\CGridView.php(339): CBaseListView->init()
+#8 C:\wamp\yii\framework\web\CBaseController.php(147): CGridView->init()
+#9 C:\wamp\yii\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#10 C:\wamp\www\vanity\protected\modules\admin\views\city\index.php(48): CBaseController->widget('zii.widgets.gri...', Array)
+#11 C:\wamp\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\van...')
+#12 C:\wamp\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\van...', Array, true)
+#13 C:\wamp\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\van...', Array, true)
+#14 C:\wamp\yii\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#15 C:\wamp\www\vanity\protected\modules\admin\controllers\CityController.php(96): CController->render('index', Array)
+#16 C:\wamp\yii\framework\web\actions\CInlineAction.php(49): CityController->actionIndex()
+#17 C:\wamp\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\wamp\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#19 C:\wamp\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\wamp\yii\framework\web\CWebApplication.php(282): CController->run('index')
+#21 C:\wamp\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/city/inde...')
+#22 C:\wamp\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#23 C:\wamp\www\vanity\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/vanity/index.php/admin/city/index?City%5Bregion_search%5D=East&City%5Bregion_id%5D=&City%5Bcity_name%5D=&City_page=1&ajax=city-grid
+HTTP_REFERER=http://localhost/vanity/index.php/admin/city/index
+---
+2013/10/03 17:34:27 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'region.region_name' in 'where clause'. The SQL statement executed was: SELECT COUNT(*) FROM `city` `t` WHERE region.region_name LIKE :ycp0.
+in C:\wamp\www\vanity\protected\modules\admin\views\city\index.php (48)
+in C:\wamp\www\vanity\protected\modules\admin\controllers\CityController.php (96)
+in C:\wamp\www\vanity\index.php (13)
+2013/10/03 17:34:27 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'region.region_name' in 'where clause'. The SQL statement executed was: SELECT COUNT(*) FROM `city` `t` WHERE region.region_name LIKE :ycp0' in C:\wamp\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\wamp\yii\framework\db\ar\CActiveRecord.php(1601): CDbCommand->queryScalar()
+#2 C:\wamp\yii\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#3 C:\wamp\yii\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#4 C:\wamp\yii\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#5 C:\wamp\yii\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#6 C:\wamp\yii\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#7 C:\wamp\yii\framework\zii\widgets\grid\CGridView.php(339): CBaseListView->init()
+#8 C:\wamp\yii\framework\web\CBaseController.php(147): CGridView->init()
+#9 C:\wamp\yii\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#10 C:\wamp\www\vanity\protected\modules\admin\views\city\index.php(48): CBaseController->widget('zii.widgets.gri...', Array)
+#11 C:\wamp\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\van...')
+#12 C:\wamp\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\van...', Array, true)
+#13 C:\wamp\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\van...', Array, true)
+#14 C:\wamp\yii\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#15 C:\wamp\www\vanity\protected\modules\admin\controllers\CityController.php(96): CController->render('index', Array)
+#16 C:\wamp\yii\framework\web\actions\CInlineAction.php(49): CityController->actionIndex()
+#17 C:\wamp\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\wamp\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#19 C:\wamp\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\wamp\yii\framework\web\CWebApplication.php(282): CController->run('index')
+#21 C:\wamp\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/city/inde...')
+#22 C:\wamp\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#23 C:\wamp\www\vanity\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/vanity/index.php/admin/city/index?City%5Bregion_search%5D=East&City%5Bregion_id%5D=&City%5Bcity_name%5D=&City_page=1&ajax=city-grid
+HTTP_REFERER=http://localhost/vanity/index.php/admin/city/index
+---
+2013/10/03 17:35:02 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'region.region_name' in 'where clause'. The SQL statement executed was: SELECT COUNT(*) FROM `city` `t` WHERE region.region_name LIKE :ycp0.
+in C:\wamp\www\vanity\protected\modules\admin\views\city\index.php (48)
+in C:\wamp\www\vanity\protected\modules\admin\controllers\CityController.php (96)
+in C:\wamp\www\vanity\index.php (13)
+2013/10/03 17:35:02 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'region.region_name' in 'where clause'. The SQL statement executed was: SELECT COUNT(*) FROM `city` `t` WHERE region.region_name LIKE :ycp0' in C:\wamp\yii\framework\db\CDbCommand.php:543
+Stack trace:
+#0 C:\wamp\yii\framework\db\CDbCommand.php(433): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 C:\wamp\yii\framework\db\ar\CActiveRecord.php(1601): CDbCommand->queryScalar()
+#2 C:\wamp\yii\framework\web\CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#3 C:\wamp\yii\framework\web\CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#4 C:\wamp\yii\framework\web\CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#5 C:\wamp\yii\framework\web\CDataProvider.php(168): CActiveDataProvider->fetchData()
+#6 C:\wamp\yii\framework\zii\widgets\CBaseListView.php(111): CDataProvider->getData()
+#7 C:\wamp\yii\framework\zii\widgets\grid\CGridView.php(339): CBaseListView->init()
+#8 C:\wamp\yii\framework\web\CBaseController.php(147): CGridView->init()
+#9 C:\wamp\yii\framework\web\CBaseController.php(172): CBaseController->createWidget('zii.widgets.gri...', Array)
+#10 C:\wamp\www\vanity\protected\modules\admin\views\city\index.php(48): CBaseController->widget('zii.widgets.gri...', Array)
+#11 C:\wamp\yii\framework\web\CBaseController.php(126): require('C:\wamp\www\van...')
+#12 C:\wamp\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\wamp\www\van...', Array, true)
+#13 C:\wamp\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\wamp\www\van...', Array, true)
+#14 C:\wamp\yii\framework\web\CController.php(782): CController->renderPartial('index', Array, true)
+#15 C:\wamp\www\vanity\protected\modules\admin\controllers\CityController.php(96): CController->render('index', Array)
+#16 C:\wamp\yii\framework\web\actions\CInlineAction.php(49): CityController->actionIndex()
+#17 C:\wamp\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#18 C:\wamp\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#19 C:\wamp\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\wamp\yii\framework\web\CWebApplication.php(282): CController->run('index')
+#21 C:\wamp\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/city/inde...')
+#22 C:\wamp\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#23 C:\wamp\www\vanity\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/vanity/index.php/admin/city/index?City%5Bregion_search%5D=West&City%5Bregion_id%5D=&City%5Bcity_name%5D=&City_page=1&ajax=city-grid
+HTTP_REFERER=http://localhost/vanity/index.php/admin/city/index
+---

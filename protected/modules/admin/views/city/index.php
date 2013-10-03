@@ -2,13 +2,13 @@
 /* @var $this CityController */
 /* @var $model City */
 
-$this->breadcrumbs=array(
-	'Cities'=>array('index'),
-	'Manage',
+$this->breadcrumbs = array(
+    'Cities' => array('index'),
+    'Manage',
 );
 
-$this->menu=array(
-	array('label'=>'Create City', 'url'=>array('create')),
+$this->menu = array(
+    array('label' => 'Create City', 'url' => array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -27,16 +27,23 @@ $('.search-form form').submit(function(){
 
 <h1>Manage Cities</h1>
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'city-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-		//'city_id',
-		'region_id',
-		'city_name',
-		array(
-			'class'=>'CButtonColumn',
-		),
-	),
-)); ?>
+<?php
+$this->widget('zii.widgets.grid.CGridView', array(
+    'id' => 'city-grid',
+    'dataProvider' => $model->search(),
+    'filter' => $model,
+    'columns' => array(
+        array(
+            'name' => 'region_search',
+            'value' => '$data->region->region_name',
+            'filter' => CHtml::listData(Region::model()->findAll(), 'region_name', 'region_name'),
+        ),
+        //'city_id',
+        //'region_id',
+        'city_name',
+        array(
+            'class' => 'CButtonColumn',
+        ),
+    ),
+));
+?>
