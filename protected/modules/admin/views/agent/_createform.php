@@ -11,7 +11,7 @@
         
         <div class="row">
 		<?php echo $form->labelEx($model,'region_id'); ?>
-		<?php echo $form->textField($model,'region_id',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->dropDownList($model,'region_id',$regionDropdown); ?>
 		<?php echo $form->error($model,'region_id'); ?>
 	</div>
 

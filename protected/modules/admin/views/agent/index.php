@@ -30,7 +30,12 @@ $('.search-form form').submit(function(){
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-                'region_id',
+                array(
+            'name' => 'region_search',
+            'value' => '$data->region->region_name',
+            'filter' => CHtml::listData(Region::model()->findAll(), 'region_name', 'region_name'),
+        ),
+                //'region_id',
 		'agent_name',
 		'agent_email',
 		'agent_password',

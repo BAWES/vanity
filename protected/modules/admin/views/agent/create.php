@@ -11,4 +11,4 @@ $this->menu=array(
 
 <h1>Create Agent</h1>
 
-<?php echo $this->renderPartial('_createform', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_createform', array('model'=>$model,'regionDropdown' => $regionDropdown,)); ?>

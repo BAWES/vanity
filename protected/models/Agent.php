@@ -15,7 +15,7 @@
  * @property Vanity[] $vanities
  */
 class Agent extends CActiveRecord {
-
+    public $region_search;
     private $salt = "28b206548469ce62182048fd9cf91760";
 
     /**
@@ -40,7 +40,7 @@ class Agent extends CActiveRecord {
             array('agent_email', 'length', 'max' => 180),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('agent_id, region_id, agent_name, agent_email, agent_password', 'safe', 'on' => 'search'),
+            array('agent_id, region_search, region_id, agent_name, agent_email, agent_password', 'safe', 'on' => 'search'),
         );
     }
     
@@ -91,6 +91,7 @@ class Agent extends CActiveRecord {
             'agent_name' => 'Agent Name',
             'agent_email' => 'Agent Email',
             'agent_password' => 'Agent Password',
+            'region_search' => 'Region',
         );
     }
 
@@ -110,6 +111,8 @@ class Agent extends CActiveRecord {
         // @todo Please modify the following code to remove attributes that should not be searched.
 
         $criteria = new CDbCriteria;
+        
+        $criteria->with = "region";
 
         $criteria->compare('agent_id', $this->agent_id);
         $criteria->compare('region_id', $this->region_id);
@@ -117,8 +120,20 @@ class Agent extends CActiveRecord {
         $criteria->compare('agent_email', $this->agent_email, true);
         $criteria->compare('agent_password', $this->agent_password, true);
 
+        //Add search function to related
+        $criteria->compare('region.region_name', $this->region_search, true);
+
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            'sort' => array(//add sorting to related model
+                'attributes' => array(
+                    'region_search' => array(
+                        'asc' => 'region.region_name',
+                        'desc' => 'region.region_name DESC',
+                    ),
+                    '*', //* means treat other fields normally
+                ),
+            ),
         ));
     }
 

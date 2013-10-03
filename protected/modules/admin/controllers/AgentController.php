@@ -36,9 +36,13 @@ class AgentController extends Controller
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->agent_id));
 		}
+                
+                //generate region dropdown list
+        $regionDropdown = CHtml::listData(Region::model()->findAll(), 'region_id', 'region_name');
 
 		$this->render('create',array(
 			'model'=>$model,
+                    'regionDropdown' => $regionDropdown,
 		));
 	}
 
@@ -60,9 +64,13 @@ class AgentController extends Controller
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->agent_id));
 		}
+                
+                //generate region dropdown list
+        $regionDropdown = CHtml::listData(Region::model()->findAll(), 'region_id', 'region_name');
 
 		$this->render('update',array(
 			'model'=>$model,
+                    'regionDropdown' => $regionDropdown,
 		));
 	}
 	
