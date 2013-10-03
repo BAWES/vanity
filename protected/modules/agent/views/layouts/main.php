@@ -30,13 +30,9 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
                     'lastItemCssClass'=>'floatRight',
 			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/admin/default/index')),
-				array('label'=>'Admins', 'url'=>array('/admin/admin/index')),
-				array('label'=>'Regions', 'url'=>array('/admin/region/index')),
-				array('label'=>'Cities', 'url'=>array('/admin/city/index')),
-				array('label'=>'Managers', 'url'=>array('/admin/manager/index')),
-				array('label'=>'Agents', 'url'=>array('/admin/agent/index')),
-				array('label'=>'Packages', 'url'=>array('/admin/package/index')),
+				array('label'=>'Home', 'url'=>array('/agent/default/index')),
+				array('label'=>'Vanity Number', 'url'=>array('/agent/vanity/index')),
+
 				array('label'=>'Login', 'url'=>array('/admin/default/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/admin/default/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
