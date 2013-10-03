@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Cities'=>array('index'),
-	$model->city_id=>array('view','id'=>$model->city_id),
+	$model->city_name=>array('view','id'=>$model->city_id),
 	'Update',
 );
 
@@ -15,6 +15,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update City <?php echo $model->city_id; ?></h1>
+<h1>Update City - <?php echo $model->city_name; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model,'regionDropdown'=>$regionDropdown)); ?>

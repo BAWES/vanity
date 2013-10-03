@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Cities'=>array('index'),
-	$model->city_id,
+	$model->city_name,
 );
 
 $this->menu=array(
@@ -15,13 +15,13 @@ $this->menu=array(
 );
 ?>
 
-<h1>View City #<?php echo $model->city_id; ?></h1>
+<h1>View City - <?php echo $model->city_name; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'city_id',
-		'region_id',
+		//'city_id',
+		'region.region_name',
 		'city_name',
 	),
 )); ?>
