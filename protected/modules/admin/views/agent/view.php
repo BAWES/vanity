@@ -18,6 +18,7 @@ $this->menu=array(
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
+                'region_id',
 		'agent_id',
 		'agent_name',
 		'agent_email',

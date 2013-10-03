@@ -200,3 +200,23 @@ Stack trace:
 REQUEST_URI=/vanity/index.php/admin/agent/create
 HTTP_REFERER=http://localhost/vanity/index.php/admin/agent/create
 ---
+2013/10/03 18:36:49 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vanity`.`agent`, CONSTRAINT `agent_ibfk_1` FOREIGN KEY (`region_id`) REFERENCES `region` (`region_id`)). The SQL statement executed was: INSERT INTO `agent` (`region_id`, `agent_name`, `agent_email`, `agent_password`) VALUES (:yp0, :yp1, :yp2, :yp3).
+in C:\wamp\www\vanity\protected\modules\admin\controllers\AgentController.php (36)
+in C:\wamp\www\vanity\index.php (13)
+2013/10/03 18:36:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`vanity`.`agent`, CONSTRAINT `agent_ibfk_1` FOREIGN KEY (`region_id`) REFERENCES `region` (`region_id`)). The SQL statement executed was: INSERT INTO `agent` (`region_id`, `agent_name`, `agent_email`, `agent_password`) VALUES (:yp0, :yp1, :yp2, :yp3)' in C:\wamp\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\wamp\yii\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 C:\wamp\yii\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 C:\wamp\www\vanity\protected\modules\admin\controllers\AgentController.php(36): CActiveRecord->save()
+#3 C:\wamp\yii\framework\web\actions\CInlineAction.php(49): AgentController->actionCreate()
+#4 C:\wamp\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\wamp\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#8 C:\wamp\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/agent/cre...')
+#9 C:\wamp\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\wamp\www\vanity\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/vanity/index.php/admin/agent/create
+HTTP_REFERER=http://localhost/vanity/index.php/admin/agent/create
+---

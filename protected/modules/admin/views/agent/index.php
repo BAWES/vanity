@@ -30,6 +30,7 @@ $('.search-form form').submit(function(){
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
+                'region_id',
 		'agent_name',
 		'agent_email',
 		'agent_password',
