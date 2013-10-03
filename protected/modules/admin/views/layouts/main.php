@@ -32,6 +32,7 @@
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/admin/default/index')),
 				array('label'=>'Admins', 'url'=>array('/admin/admin/index')),
+				array('label'=>'Regions', 'url'=>array('/admin/region/index')),
 				array('label'=>'Login', 'url'=>array('/admin/default/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/admin/default/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
