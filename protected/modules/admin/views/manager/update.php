@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Managers'=>array('index'),
-	$model->manager_id=>array('view','id'=>$model->manager_id),
+	$model->manager_name=>array('view','id'=>$model->manager_id),
 	'Update',
 );
 
@@ -15,6 +15,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update Manager <?php echo $model->manager_id; ?></h1>
+<h1>Update Manager - <?php echo $model->manager_name; ?></h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model,'regionDropdown' => $regionDropdown,)); ?>

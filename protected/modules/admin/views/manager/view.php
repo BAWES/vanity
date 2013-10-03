@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Managers'=>array('index'),
-	$model->manager_id,
+	$model->manager_name,
 );
 
 $this->menu=array(
@@ -15,13 +15,13 @@ $this->menu=array(
 );
 ?>
 
-<h1>View Manager #<?php echo $model->manager_id; ?></h1>
+<h1>View Manager - <?php echo $model->manager_name; ?></h1>
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'manager_id',
-		'region_id',
+		//'manager_id',
+		'region.region_name',
 		'manager_name',
 		'manager_email',
 	),

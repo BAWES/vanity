@@ -21,7 +21,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'region_id'); ?>
-		<?php echo $form->textField($model,'region_id'); ?>
+		<?php echo $form->dropDownList($model,'region_id',$regionDropdown); ?>
 		<?php echo $form->error($model,'region_id'); ?>
 	</div>
 
