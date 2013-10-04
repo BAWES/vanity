@@ -23,7 +23,7 @@
 <div class="container" id="page">
 
 	<div id="header">
-		<div id="logo"><img src='<?php echo Yii::app()->request->baseUrl; ?>/images/logotrans.png'/><br/>Administrator</div>
+		<div id="logo"><img src='<?php echo Yii::app()->request->baseUrl; ?>/images/logotrans.png'/><br/>Agent</div>
 	</div><!-- header -->
 
 	<div id="mainmenu">
@@ -32,7 +32,7 @@
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/agent/default/index')),
 				array('label'=>'Vanity Number', 'url'=>array('/agent/vanity/index')),
-
+				array('label'=>'My Profile', 'url'=>array('/agent/profile')),
 				array('label'=>'Login', 'url'=>array('/admin/default/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/admin/default/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),

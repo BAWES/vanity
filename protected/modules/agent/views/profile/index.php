@@ -1,18 +1,18 @@
 <?php
-/* @var $this VanityController */
+/* @var $this AgentController */
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Vanities',
+	'Agents',
 );
 
 $this->menu=array(
-	array('label'=>'Add Number', 'url'=>array('create')),
-	array('label'=>'Manage Vanity', 'url'=>array('admin')),
+	array('label'=>'Create Agent', 'url'=>array('create')),
+	array('label'=>'Manage Agent', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Vanity Numbers</h1>
+<h1>Agents</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

@@ -1,13 +1,13 @@
 <?php
-/* @var $this VanityController */
-/* @var $model Vanity */
+/* @var $this AgentController */
+/* @var $model Agent */
 /* @var $form CActiveForm */
 ?>
 
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'vanity-form',
+	'id'=>'agent-form',
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
@@ -18,18 +18,24 @@
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
+
 	<div class="row">
-		<?php echo $form->labelEx($model,'vanity_number'); ?>
-		<?php echo $form->textField($model,'vanity_number',array('size'=>60,'maxlength'=>60)); ?>
-		<?php echo $form->error($model,'vanity_number'); ?>
+		<?php echo $form->label($model,'region_id'); ?>
+		<?php $agent = Region::model()->findByPK($model->region_id);echo ucfirst($agent->region_name); ?>
+		<?php echo $form->error($model,'region_id'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'vanity_status'); ?>
-		<?php echo $form->dropDownList($model,'vanity_status',array('show' => 'Show', 'hide' => 'Hide','reserved'=>'Reserved','sold'=>'Sold')); ?>
-		<?php echo $form->error($model,'vanity_status'); ?>
+		<?php echo $form->labelEx($model,'agent_name'); ?>
+		<?php echo $form->textField($model,'agent_name',array('size'=>60,'maxlength'=>160)); ?>
+		<?php echo $form->error($model,'agent_name'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'agent_email'); ?>
+		<?php echo $form->textField($model,'agent_email',array('size'=>60,'maxlength'=>180)); ?>
+		<?php echo $form->error($model,'agent_email'); ?>
+	</div>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

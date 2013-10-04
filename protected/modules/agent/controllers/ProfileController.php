@@ -1,6 +1,6 @@
 <?php
 
-class VanityController extends Controller
+class ProfileController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -36,14 +36,14 @@ class VanityController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','sold','cancelsale','soldstatus'),
-				'users'=>array('@')
+				'actions'=>array('admin','delete'),
+				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
 		);
-	} 
+	}
 
 	/**
 	 * Displays a particular model.
@@ -55,31 +55,6 @@ class VanityController extends Controller
 			'model'=>$this->loadModel($id),
 		));
 	}
-
-	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
-	public function actionCreate()
-	{
-		$model=new Vanity;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Vanity']))
-		{
-			$model->attributes=$_POST['Vanity'];
-			$model->agent_id = Yii::app()->user->getState('agent_id');		
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->vanity_id));
-		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
-	}
-
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
@@ -92,11 +67,11 @@ class VanityController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Vanity']))
+		if(isset($_POST['Agent']))
 		{
-			$model->attributes=$_POST['Vanity'];
+			$model->attributes=$_POST['Agent'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->vanity_id));
+				$this->redirect(array('view','id'=>$model->agent_id));
 		}
 
 		$this->render('update',array(
@@ -117,57 +92,20 @@ class VanityController extends Controller
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
-	/**
-	 * Cancel sale a particular  number.
-	 */
-	public function actionCancelSale($id)
-	{
-		
-		$cancelSale=Vanity::model()->updateByPk
-                      ($id,array("vanity_status"=>'show'));  
-
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(array('sold'));
-	}	
-	/**
-	 * make sold status for particular number.
-	 */
-	public function actionSoldStatus($id)
-	{
-		
-		$soldStatus=Vanity::model()->updateByPk
-                      ($id,array("vanity_status"=>'sold'));  
-
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(array('admin'));
-	}
 
 	/**
 	 * Lists all models.
 	 */
 	public function actionIndex()
 	{
-	    
-		$dataProvider=new CActiveDataProvider('Vanity');
+	    $id = Yii::app()->user->getState('agent_id');	
+		$this->render('view',array(
+			'model'=>$this->loadModel($id),
+		));
+		/*$dataProvider=new CActiveDataProvider('Agent');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
-		));
-	}
-	/**
-	 * Lists all sold number.
-	 */
-	public function actionSold()
-	{
-	    
-		$dataProvider=new CActiveDataProvider('Vanity',array(
-        'criteria'=>array(
-        'condition'=>'agent_id= '.Yii::app()->user->getState('agent_id').' AND vanity_status = "sold"',
-		)));
-		$this->render('sold',array(
-			'dataProvider'=>$dataProvider,
-		));
+		));*/
 	}
 
 	/**
@@ -175,10 +113,10 @@ class VanityController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Vanity('search');
+		$model=new Agent('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Vanity']))
-			$model->attributes=$_GET['Vanity'];
+		if(isset($_GET['Agent']))
+			$model->attributes=$_GET['Agent'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -189,12 +127,12 @@ class VanityController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Vanity the loaded model
+	 * @return Agent the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Vanity::model()->findByPk($id);
+		$model=Agent::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -202,11 +140,11 @@ class VanityController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Vanity $model the model to be validated
+	 * @param Agent $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='vanity-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='agent-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
