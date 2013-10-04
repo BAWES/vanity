@@ -20,6 +20,7 @@ class UserIdentity extends CUserIdentity
 		else
 		{
 			$this->_id=$agentRecord->agent_id; 
+			$this->setState('agent_id', $agentRecord->agent_id); 
 			$this->setState('name', $agentRecord->agent_name); 
 			//user type
 			$this->setState('ut','agent');

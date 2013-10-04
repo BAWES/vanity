@@ -18,13 +18,6 @@
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'agent_id'); ?>
-		<?php echo $form->textField($model,'agent_id'); ?>
-		<?php echo $form->error($model,'agent_id'); ?>
-	</div>
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'vanity_number'); ?>
 		<?php echo $form->textField($model,'vanity_number',array('size'=>60,'maxlength'=>60)); ?>
@@ -33,7 +26,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'vanity_status'); ?>
-		<?php echo $form->textField($model,'vanity_status',array('size'=>8,'maxlength'=>8)); ?>
+		<?php echo $form->dropDownList($model,'vanity_status',array('show' => 'Show', 'hide' => 'Hide','reserved'=>'Reserved','sold'=>'Sold')); ?>
 		<?php echo $form->error($model,'vanity_status'); ?>
 	</div>
 

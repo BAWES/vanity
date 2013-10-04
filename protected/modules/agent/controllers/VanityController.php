@@ -36,14 +36,14 @@ class VanityController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
+				'actions'=>array('admin','delete','sold','cancelsale'),
+				'users'=>array('@')
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),
 		);
-	}
+	} 
 
 	/**
 	 * Displays a particular model.
@@ -70,6 +70,7 @@ class VanityController extends Controller
 		if(isset($_POST['Vanity']))
 		{
 			$model->attributes=$_POST['Vanity'];
+			$model->agent_id = Yii::app()->user->getState('agent_id');		
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->vanity_id));
 		}
@@ -116,15 +117,42 @@ class VanityController extends Controller
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
+	/**
+	 * Cancel sale a particular particular number.
+	 */
+	public function actionCancelSale($id)
+	{
+		
+		$cancelSale=Vanity::model()->updateByPk
+                      ($id,array("vanity_status"=>'show'));  
+
+		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+			$this->redirect(array('sold'));
+	}
 
 	/**
 	 * Lists all models.
 	 */
 	public function actionIndex()
 	{
-	    $this->layout='column2';
+	    
 		$dataProvider=new CActiveDataProvider('Vanity');
 		$this->render('index',array(
+			'dataProvider'=>$dataProvider,
+		));
+	}
+	/**
+	 * Lists all sold number.
+	 */
+	public function actionSold()
+	{
+	    
+		$dataProvider=new CActiveDataProvider('Vanity',array(
+        'criteria'=>array(
+        'condition'=>'agent_id= '.Yii::app()->user->getState('agent_id').' AND vanity_status = "sold"',
+		)));
+		$this->render('sold',array(
 			'dataProvider'=>$dataProvider,
 		));
 	}

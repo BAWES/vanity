@@ -8,11 +8,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Vanity', 'url'=>array('index')),
-	array('label'=>'Manage Vanity', 'url'=>array('admin')),
+	array('label'=>'List Number', 'url'=>array('index')),
+	array('label'=>'Manage Number', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Vanity</h1>
+<h1>Add Number</h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

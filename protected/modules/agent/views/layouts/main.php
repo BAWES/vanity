@@ -23,7 +23,7 @@
 <div class="container" id="page">
 
 	<div id="header">
-		<div id="logo"><img src='<?php echo Yii::app()->request->baseUrl; ?>/images/logotrans.png'/><br/>Administrator</div>
+		<div id="logo"><img src='<?php echo Yii::app()->request->baseUrl; ?>/images/logotrans.png'/><br/>Agent</div>
 	</div><!-- header -->
 
 	<div id="mainmenu">
