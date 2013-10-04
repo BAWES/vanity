@@ -36,7 +36,7 @@ class VanityController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','sold','cancelsale'),
+				'actions'=>array('admin','delete','sold','cancelsale','soldstatus'),
 				'users'=>array('@')
 			),
 			array('deny',  // deny all users
@@ -118,7 +118,7 @@ class VanityController extends Controller
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 	/**
-	 * Cancel sale a particular particular number.
+	 * Cancel sale a particular  number.
 	 */
 	public function actionCancelSale($id)
 	{
@@ -129,6 +129,19 @@ class VanityController extends Controller
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(array('sold'));
+	}	
+	/**
+	 * make sold status for particular number.
+	 */
+	public function actionSoldStatus($id)
+	{
+		
+		$soldStatus=Vanity::model()->updateByPk
+                      ($id,array("vanity_status"=>'sold'));  
+
+		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+			$this->redirect(array('admin'));
 	}
 
 	/**

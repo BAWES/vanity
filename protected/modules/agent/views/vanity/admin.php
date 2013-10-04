@@ -47,6 +47,15 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'vanity_status',
 		array(
 			'class'=>'CButtonColumn',
+			'template'=>'{update}{delete}{sold}',
+			'buttons'=>array
+            (
+		       'sold' =>array(
+			      'imageUrl'=>Yii::app()->request->baseUrl.'/images/sold.png',
+				  'visible'=>'$data->vanity_status!="sold"',
+				  'url'=>'Yii::app()->controller->createUrl("soldstatus",array("id"=>$data->primaryKey))',
+			   ),
+		    ),
 		),
 	),
 )); ?>
