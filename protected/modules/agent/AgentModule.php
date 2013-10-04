@@ -21,7 +21,7 @@ class AgentModule extends CWebModule {
         ));
 
         Yii::app()->errorHandler->errorAction = 'agent/default/error';
-        Yii::app()->user->setStateKeyPrefix('_admin');
+        Yii::app()->user->setStateKeyPrefix('_agent');
     }
 
     public function beforeControllerAction($controller, $action) {
