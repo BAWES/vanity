@@ -114,7 +114,13 @@ class VanityController extends Controller
 	public function actionIndex()
 	{
 	    
-		$dataProvider=new CActiveDataProvider('Vanity');
+		$dataProvider=new CActiveDataProvider('Vanity',
+		array(
+		'criteria'=>array(
+        'condition'=>'agent_id= '.Yii::app()->user->getState('agent_id'),
+		),
+		)
+		);
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -141,9 +147,14 @@ class VanityController extends Controller
 	{
 		$model=new Vanity('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Vanity']))
-			$model->attributes=$_GET['Vanity'];
-
+		if(isset($_GET['Vanity'])){
+		   $model->attributes=$_GET['Vanity'];
+		   $model->agent_id = Yii::app()->user->getState('agent_id');
+		}else{
+		   $model->agent_id = Yii::app()->user->getState('agent_id');
+		}
+			
+            
 		$this->render('admin',array(
 			'model'=>$model,
 		));
