@@ -31,7 +31,8 @@
                     'lastItemCssClass'=>'floatRight',
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/agent/default/index')),
-				array('label'=>'Vanity Number', 'url'=>array('/agent/vanity/index')),
+				array('label'=>'Vanity Number', 'url'=>array('/agent/vanity')),
+				array('label'=>'Reservation', 'url'=>array('/agent/reservation')),
 				array('label'=>'My Profile', 'url'=>array('/agent/profile')),
 				array('label'=>'Login', 'url'=>array('/admin/default/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/admin/default/logout'), 'visible'=>!Yii::app()->user->isGuest)
