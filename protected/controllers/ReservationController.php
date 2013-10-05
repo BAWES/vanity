@@ -28,20 +28,10 @@ class ReservationController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','create'),
 				'users'=>array('*'),
 			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('@'),
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
+
 		);
 	}
 
@@ -71,19 +61,19 @@ class ReservationController extends Controller
 		if(isset($_POST['Reservation']))
 		{
 			$model->attributes=$_POST['Reservation'];
-			//$model->vanity_status = 'reserved';
+			
+			
 			$model->reservation_datetime = new CDbExpression('NOW()');
-			if($model->save())
+			$model->package_id = $_REQUEST['package_id'];
+			if($model->save()){
+			    Vanity::model()->updateByPk($model->vanity_id,array("vanity_status"=>'reserved')); 
 				$this->redirect(array('view','id'=>$model->reservation_id));
+			}	
 		}
-		// fetching available package
-		$packageDropdown = CHtml::listData(Package::model()->findAll(), 'package_id', 'package_name');
 		// fetching available vanity number with related agent
-		$vanityDropdown = CHtml::listData(Vanity::model()->findAll('agent_id='.Yii::app()->user->getState('agent_id').' AND vanity_status="show"'),'vanity_id', 'vanity_number');
-		$regionDropdown = CHtml::listData(Region::model()->findAll(),'region_id', 'region_name');
+		$vanityDropdown = CHtml::listData(Vanity::model()->findAll('vanity_status="show"'),'vanity_id', 'vanity_number');$regionDropdown = CHtml::listData(Region::model()->findAll(),'region_id', 'region_name');
 		$this->render('create',array(
 		'model'=>$model,
-		'packageDropdown' => $packageDropdown,
 		'vanityDropdown'=>$vanityDropdown,
 		'regionDropdown'=>$regionDropdown,
 		));
@@ -111,12 +101,10 @@ class ReservationController extends Controller
 		$packageDropdown = CHtml::listData(Package::model()->findAll(), 'package_id', 'package_name');
 		// fetching available vanity number with related agent
 		$vanityDropdown = CHtml::listData(Vanity::model()->findAll('agent_id='.Yii::app()->user->getState('agent_id').' AND vanity_status="show"'),'vanity_id', 'vanity_number');
-		$regionDropdown = CHtml::listData(Region::model()->findAll(),'region_id', 'region_name');
 		$this->render('update',array(
 			'model'=>$model,
 			'packageDropdown' => $packageDropdown,
-			'vanityDropdown'=>$vanityDropdown,
-			'regionDropdown'=>$regionDropdown,
+		     'vanityDropdown'=>$vanityDropdown,
 		));
 	}
 
@@ -187,7 +175,7 @@ class ReservationController extends Controller
 	}
 	public function actionDynamiccities()
 	{
-			$region_id = $_REQUEST['region_id'] ;
+			$region_id = $_POST['region_id'] ;
 			$city_id = City::model()->findAll(array('select'=>'city_id,city_name','condition'=>"region_id='$region_id'"));
 			$data = CHtml::listData($city_id,'city_id','city_name');
 			echo CHtml::tag('option',array('value' => ''),CHtml::encode('Select City'),true);

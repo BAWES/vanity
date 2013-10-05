@@ -15,4 +15,4 @@ $this->menu=array(
 
 <h1>Create Reservation</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model,'packageDropdown'=>$packageDropdown,'vanityDropdown'=>$vanityDropdown)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model,'packageDropdown'=>$packageDropdown,'vanityDropdown'=>$vanityDropdown,'regionDropdown'=>$regionDropdown)); ?>

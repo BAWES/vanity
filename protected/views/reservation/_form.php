@@ -24,31 +24,22 @@
 		<?php echo $form->dropDownList($model,'vanity_id',$vanityDropdown,array('empty' => '--Select a number--')); ?>
 		<?php echo $form->error($model,'vanity_id'); ?>
 	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'package_id'); ?>
-		<?php echo $form->dropDownList($model,'package_id',$packageDropdown,array('empty' => '--Select a package--')); ?>
-		<?php echo $form->error($model,'package_id'); ?>
-	</div>
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'reservation_name'); ?>
 		<?php echo $form->textField($model,'reservation_name',array('size'=>60,'maxlength'=>180)); ?>
 		<?php echo $form->error($model,'reservation_name'); ?>
 	</div>
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'reservation_phone'); ?>
 		<?php echo $form->textField($model,'reservation_phone',array('size'=>60,'maxlength'=>160)); ?>
 		<?php echo $form->error($model,'reservation_phone'); ?>
 	</div>
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'reservation_email'); ?>
 		<?php echo $form->textField($model,'reservation_email',array('size'=>60,'maxlength'=>120)); ?>
 		<?php echo $form->error($model,'reservation_email'); ?>
 	</div>
-	   	<div class="row">
+   	<div class="row">
 		<?php echo $form->labelEx($model,'region_id'); ?>
 		<?php echo $form->dropDownList($model,'region_id',$regionDropdown,array('empty' => '--Select Region--')); ?>
 		<?php echo $form->error($model,'region_id'); ?>
@@ -70,11 +61,8 @@
 		?>
 		<?php echo $form->error($model,'city_id'); ?>
 	</div>
-
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
-
 <?php $this->endWidget(); ?>
-
 </div><!-- form -->

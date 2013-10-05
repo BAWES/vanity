@@ -17,4 +17,4 @@ $this->menu=array(
 ?>
 
 <h1>Update Reservation <?php echo $model->reservation_id; ?></h1>
-<?php $this->renderPartial('_form', array('model'=>$model,'packageDropdown'=>$packageDropdown,'vanityDropdown'=>$vanityDropdown,'regionDropdown'=>$regionDropdown)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model,'packageDropdown'=>$packageDropdown,'vanityDropdown'=>$vanityDropdown)); ?>

@@ -56,6 +56,9 @@ $this->widget('zii.widgets.grid.CGridView', array(
 		'reservation_name',
 		'reservation_phone',
 		'reservation_email',
+		/*
+		'reservation_datetime',
+		*/
 		array(
 			'class'=>'CButtonColumn',
 		),

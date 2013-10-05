@@ -34,7 +34,7 @@ class Reservation extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('vanity_id, reservation_name, reservation_phone, reservation_email, reservation_datetime', 'required'),
+			array('vanity_id, reservation_name, reservation_phone, reservation_email, reservation_datetime,city_id,region_id', 'required'),
 			array('package_id', 'numerical', 'integerOnly'=>true),
 			array('vanity_id', 'length', 'max'=>20),
 			array('reservation_name', 'length', 'max'=>180),
@@ -68,9 +68,11 @@ class Reservation extends CActiveRecord
 			'reservation_id' => 'Reservation',
 			'vanity_id' => 'Vanity',
 			'package_id' => 'Package',
-			'reservation_name' => 'Reservation Name',
-			'reservation_phone' => 'Reservation Phone',
-			'reservation_email' => 'Reservation Email',
+			'reservation_name' => 'Name',
+			'reservation_phone' => 'Contact Number',
+			'reservation_email' => 'Email',
+			'city_id' => 'City',
+			'region_id' => 'Region',
 			'reservation_datetime' => 'Reservation Datetime',
 		);
 	}
