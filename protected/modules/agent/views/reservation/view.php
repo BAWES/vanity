@@ -20,8 +20,9 @@ $this->menu=array(
 <?php 
 $vanity_number = Vanity::model()->findByPK($model->vanity_id);
 $package = Package::model()->findByPK($model->package_id);
-$pakage = isset($package) ? $package->package : 'Not set';
- ?>
+$pakage_name = !empty($package->package_name) ? $package->package_name : 'Not set';
+
+?>
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
@@ -31,9 +32,8 @@ $pakage = isset($package) ? $package->package : 'Not set';
 		),
 		array(
 		'label' => 'Package',
-		'value' =>$package,
+		'value' =>$pakage_name,
 		),
-		
 		'reservation_name',
 		'reservation_phone',
 		'reservation_email',

@@ -11,9 +11,9 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('package_id')); ?>:</b>
 	<?php 
-     $package = Package::model()->findByPK($data->package_id);
-     echo $pakage = isset($package) ? $package->package : 'Not set';
-	?>
+	$package = Package::model()->findByPK($data->package_id);
+    echo $pakage_name = !empty($package->package_name) ? $package->package_name : 'Not set';
+    ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('reservation_name')); ?>:</b>

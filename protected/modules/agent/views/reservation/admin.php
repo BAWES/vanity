@@ -47,9 +47,12 @@ $this->widget('zii.widgets.grid.CGridView', array(
 	'columns'=>array(
 		array(
             'name' => 'vanity_id',
-            'value' => '',
+            'value' => '$data->vanity->vanity_number',
         ),
-		'package_id',
+		array(
+            'name' => 'package_id',
+            'value' => '$data->package->package_name',
+        ),
 		'reservation_name',
 		'reservation_phone',
 		'reservation_email',
