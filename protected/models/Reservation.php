@@ -7,14 +7,18 @@
  * @property string $reservation_id
  * @property string $vanity_id
  * @property integer $package_id
+ * @property integer $city_id
+ * @property integer $region_id
  * @property string $reservation_name
  * @property string $reservation_phone
  * @property string $reservation_email
  * @property string $reservation_datetime
  *
  * The followings are the available model relations:
+ * @property Region $region
  * @property Vanity $vanity
  * @property Package $package
+ * @property City $city
  */
 class Reservation extends CActiveRecord
 {
@@ -43,7 +47,7 @@ class Reservation extends CActiveRecord
 			array('reservation_email', 'length', 'max'=>120),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('reservation_id, vanity_id, package_id, reservation_name, reservation_phone, reservation_email, reservation_datetime', 'safe', 'on'=>'search'),
+			array('reservation_id, vanity_id, package_id, city_id, region_id, reservation_name, reservation_phone, reservation_email, reservation_datetime', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,8 +59,10 @@ class Reservation extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+                        'region' => array(self::BELONGS_TO, 'Region', 'region_id'),
 			'vanity' => array(self::BELONGS_TO, 'Vanity', 'vanity_id'),
 			'package' => array(self::BELONGS_TO, 'Package', 'package_id'),
+                        'city' => array(self::BELONGS_TO, 'City', 'city_id'),
 		);
 	}
 
