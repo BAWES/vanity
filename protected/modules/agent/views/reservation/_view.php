@@ -27,6 +27,14 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('reservation_email')); ?>:</b>
 	<?php echo CHtml::encode($data->reservation_email); ?>
 	<br />
+	<b><?php echo CHtml::encode($data->getAttributeLabel('city_id')); ?>:</b>
+	
+	<?php $city_name = City::model()->findByPK($data->city_id); echo $city_name->city_name; ?>
+	<br />
+     <b><?php echo CHtml::encode($data->getAttributeLabel('region_id')); ?>:</b>
+	
+	<?php $region_name = Region::model()->findByPK($data->region_id); echo $region_name->region_name; ?>
+	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('reservation_datetime')); ?>:</b>
 	<?php echo CHtml::encode($data->reservation_datetime); ?>

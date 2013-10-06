@@ -19,11 +19,7 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'vanity_id'); ?>
-		<?php echo $form->dropDownList($model,'vanity_id',$vanityDropdown,array('empty' => '--Select a number--')); ?>
-		<?php echo $form->error($model,'vanity_id'); ?>
-	</div>
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'reservation_name'); ?>
 		<?php echo $form->textField($model,'reservation_name',array('size'=>60,'maxlength'=>180)); ?>
@@ -39,12 +35,18 @@
 		<?php echo $form->textField($model,'reservation_email',array('size'=>60,'maxlength'=>120)); ?>
 		<?php echo $form->error($model,'reservation_email'); ?>
 	</div>
-   	<div class="row">
+   <div class="row">
 		<?php echo $form->labelEx($model,'region_id'); ?>
-		<?php echo $form->dropDownList($model,'region_id',$regionDropdown,array('empty' => '--Select Region--')); ?>
+		<?php echo $form->dropDownList($model,'region_id',$regionDropdown,array('prompt'=>'--Select Region--',
+		'ajax' => array(
+		'type' => 'POST',
+		'url' => CController::createUrl('reservation/dynamiccities'),
+		'update'=>'#Reservation_city_id',
+		'data'=>array('region_id'=>'js:this.value'),
+		))); ?>
 		<?php echo $form->error($model,'region_id'); ?>
 	</div>
-		<div class="row">
+	<div class="row">
 		<?php echo $form->labelEx($model,'city_id'); ?>
 		<?php
 		$allCities = new CDbCriteria;
@@ -54,12 +56,17 @@
 		'prompt'=>'--Select City--',
 		'ajax' => array(
 		'type' => 'POST',
-		'url' => CController::createUrl('reservation/dynamiccities'),
-		'update'=>'#Reservation_city_id',
+		'url' => CController::createUrl('reservation/dynamicvanities'),
+		'update'=>'#Reservation_vanity_id',
 		'data'=>array('city_id'=>'js:this.value'),
-		) ));
+		)));
 		?>
 		<?php echo $form->error($model,'city_id'); ?>
+	</div>
+		<div class="row">
+		<?php echo $form->labelEx($model,'vanity_id'); ?>
+		<?php echo $form->dropDownList($model,'vanity_id',array('empty' => '--Select a number--')); ?>
+		<?php echo $form->error($model,'vanity_id'); ?>
 	</div>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

@@ -36,7 +36,7 @@ class ReservationController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','dynamiccities','dynamicvanities'),
 				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
@@ -187,9 +187,24 @@ class ReservationController extends Controller
 	}
 	public function actionDynamiccities()
 	{
-			$region_id = $_REQUEST['region_id'] ;
+			$region_id = $_POST['region_id'] ;
 			$city_id = City::model()->findAll(array('select'=>'city_id,city_name','condition'=>"region_id='$region_id'"));
 			$data = CHtml::listData($city_id,'city_id','city_name');
+			echo CHtml::tag('option',array('value' => ''),CHtml::encode('Select City'),true);
+			foreach($data as $id => $value)
+			{
+			echo CHtml::tag('option',array('value' => $id),CHtml::encode($value),true);
+			}
+	}
+	public function actionDynamicvanities()
+	{
+	        $postCity_id = $_POST['city_id'];
+	        $region = City::model()->find(array('select'=>'region_id','condition'=>"city_id=".$postCity_id));
+ 		    $region_id = $region->region_id;
+			$sql = "select a.vanity_id,a.vanity_number from vanity a join agent b on b.agent_id = a.agent_id and b.region_id = ".$region_id." AND a.vanity_status = 'show'";
+			$command=Yii::app()->db->createCommand($sql);
+            $results=$command->query();
+			$data = CHtml::listData($results,'vanity_id','vanity_number');
 			echo CHtml::tag('option',array('value' => ''),CHtml::encode('Select City'),true);
 			foreach($data as $id => $value)
 			{

@@ -35,10 +35,11 @@ class Reservation extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('vanity_id, reservation_name, reservation_phone, reservation_email, reservation_datetime,city_id,region_id', 'required'),
+			array('reservation_email', 'email'),
 			array('package_id', 'numerical', 'integerOnly'=>true),
 			array('vanity_id', 'length', 'max'=>20),
 			array('reservation_name', 'length', 'max'=>180),
-			array('reservation_phone', 'length', 'max'=>160),
+			array('reservation_phone', 'numerical','integerOnly'=>true),
 			array('reservation_email', 'length', 'max'=>120),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
