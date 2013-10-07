@@ -4,7 +4,8 @@ class DefaultController extends Controller {
 
     public function actionIndex() {
         $this->layout='column2';
-        $this->render('index');
+        //$this->render('index');
+        $this->redirect(array('reservation/index'));
     }
 
     public function actionError() {
