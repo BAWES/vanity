@@ -1,0 +1,421 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+*{
+	padding:0px;
+	margin:0px;
+	outline:0px;
+	border:0px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+ul , li{
+	list-style:none;
+}
+a{
+	text-decoration:none;
+	transition:all .2s linear;
+	-o-transition:all .2s linear;
+	-ms-transition:all .2s linear;
+	-moz-transition:all .2s linear;
+	-webkit-transition:all .2s linear;
+}
+h1, h2, h3, h4, h5, h6{
+	font-weight:normal;
+}
+.clear{
+	clear:both;
+}
+input, textarea{
+	transition:all .2s linear;
+	-moz-transition:all .2s linear;
+	-webkit-transition:all .2s linear;
+}
+body{
+	font-size:100%;
+}
+.wrapper{
+	width:800px;
+	margin:0 auto;
+	position:relative;
+	min-height:800px;
+	height:100%;
+}
+
+
+
+.bg1{
+	background:url(../images/bg1.jpg) no-repeat;
+	width:800px;
+	height:740px;
+	position:relative;
+	float:left;
+	padding:0 25px;
+}
+.logo{
+	width:100%;
+	float:left;
+	margin:25px 0 0;
+	position:relative;
+}
+.logo img{
+	float:left;
+	margin:0px;
+}
+
+.mazorspeed{
+	text-align:center;
+	position:relative;
+	width:100%;
+	float:left;
+}
+.mazorspeed_box{
+	width:280px;
+	height:230px;
+	background:#FFF;
+	padding:42px 50px;
+	border-radius:6px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	display:inline-block;
+	-moz-display:inline;
+	zoom:1;
+	margin:175px 0;
+	position:relative;
+}
+.btnMaza{
+background:url(../images/btn_maz.png) no-repeat;
+
+margin:0px auto;
+width:180px;
+position:absolute;
+top:42px;
+left:0px;
+right:0px;
+text-align:center;
+height:48px;
+line-height:48px;
+border-radius:3px;
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
+
+transition: all 0s linear;
+-moz-transition: all 0s linear;
+-webkit-transition: all 0s linear;
+
+font-family: 'verdana';
+text-transform:uppercase;
+color:#FFF;
+font-size:16px;
+text-shadow:0 1px 0 rgba(0,0,0,.3);
+}
+.btnMaza:hover{
+	background: rgb(67,170,223);
+}
+.btnSpeed{
+	bottom:42px;
+	top:auto;
+	background:url(../images/btn_speed.png) no-repeat;
+}
+.btnSpeed:hover{
+	background:#a44ec4;
+}
+.mazorspeed_box img{
+	margin-top:66px;
+}
+.footer{
+	background:#000;
+	height:60px;
+	width:100%;
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	z-index:999;
+	padding:0 25px;
+}
+.footer a {
+    color: #CF0072;
+    font-family: "qt_zaintextbold";
+    font-size: 20px;
+    line-height: 40px;
+    margin-top: 15px;
+    position: relative;
+}
+.footer a:first-child{
+	float:left;
+}
+.footer a:last-child{
+	float:right;
+}
+.footer.colorful a{
+	color:#e4d700 !important;	
+}
+
+
+
+
+
+.bg2{
+	background:url(../images/bg2.jpg) no-repeat;
+	width:800px;
+	height:740px;
+	position:absolute;
+	padding:0 25px;
+	z-index:55;
+	top:-750px;
+	left:0px;
+	right:0px;
+}
+.form_wrapper{
+	text-align:center;
+	position:relative;
+	width:100%;
+	float:left;
+}
+.formbg{
+	width:330px;
+	height:553px;
+	background:#FFF;
+	padding:40px;
+	border-radius:6px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	display:inline-block;
+	-moz-display:inline;
+	zoom:1;
+	margin:26px 0 0;
+	position:relative;
+}
+.formbg h1{
+	position:relative;
+	width:100%;
+	float:left;
+	margin:0px;
+	text-align:center;
+	font-size:45px;
+	color:#cf0072;
+	font-family: "qt_zaintextblack";
+	line-height:55px;
+}
+
+.formbg input{
+	width:250px;
+	height:40px;
+	border:1px solid #d9d9d9;
+	border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	float:left;
+	padding:5px 12px;
+	margin-top:15px;
+	color:#666666;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+}
+.formbg input.name{
+	background:url(../images/user_icn.png) no-repeat 12px center;
+	margin-top:25px;
+}
+.formbg input.phone{
+	background:url(../images/phone.png) no-repeat 12px center;
+}
+.formbg input.mail{
+	background:url(../images/mail_icn.png) no-repeat 12px center;
+}
+.formbg select{
+	width:250px;
+	height:40px;
+	border:1px solid #d9d9d9;
+	border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	float:left;
+	padding:10px;
+	margin-top:15px;
+	color:#666666;
+	font-size:14px;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.formbg input.next, .formbg input.reset{
+	background:url(../images/btn_pink.png) no-repeat;
+	width:120px;
+	height:48px;
+	position:relative;
+	border:none;
+	color:#FFF;
+	font-size:20px;
+	margin-top:30px;
+	font-family: 'qt_zaintextbold';
+	cursor:pointer;
+	transition: all 0s linear;
+	-moz-transition: all 0s linear;
+	-webkit-transition: all 0s linear;
+}
+.formbg input.reset{
+	background:url(../images/btn_black.png) no-repeat;
+	float:right;
+	padding-top:10px;
+}
+.formbg input.next:hover{
+	background:#df007b;
+}
+.formbg input.reset:hover{
+	background:#3f3f3f;
+}
+
+
+
+
+
+
+
+.bg3{
+	background:url(../images/bg3.jpg) no-repeat;
+	width:800px;
+	height:740px;
+	position:absolute;
+	padding:0 25px;
+	z-index:100;
+	left:0px;
+	text-align:center;
+	right:0px;
+	
+	top:-750px;
+}
+.thankyoubox{
+	display:inline-block;
+	*display:inline;
+	zoom:1;
+	width:500px;
+	height:310px;
+	position:relative;
+	background:#FFF;
+	border-radius:6px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	margin-top:146px;
+	padding:40px;
+}
+.thankyoubox h3{
+	color:#cf0072;
+	font-family: 'qt_zaintextbold';
+	font-size:25px;
+	margin-top:10px;
+	position:relative;
+}
+.thankyoubox p{
+	color:#4c4c4c;
+	font-family: 'qt_zaintextbold';
+	font-size:16px;
+	margin-top:15px;
+	position:relative;
+}
+.thankyoubox a{
+	background:url(../images/btn_maz.png) no-repeat;
+	width:180px;
+	height:48px;
+	line-height:59px;
+	position:relative;
+	margin-top:12px;
+	font-family: 'qt_zaintextbold';
+	text-shadow:0 1px 0 #rgba(0,0,0,.6);
+	font-size:20px;
+	color:#FFF;
+	text-align:center;
+	display:inline-block;
+	*display:inline;
+	zoom:1;
+	
+	transition: all 0s linear;
+	-moz-transition: all 0s linear;
+	-webkit-transition: all 0s linear;
+	
+	border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	
+}
+.thankyoubox a:hover{
+	background: rgb(67,170,223);
+	border:1px solid #1d7cae;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+=================Font Section============*/
+
+
+@font-face {
+    font-family: 'qt_zaintextregular';
+    src: url('../font/qtzaintextregular-webfont.eot');
+    src: url('../font/qtzaintextregular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/qtzaintextregular-webfont.woff') format('woff'),
+         url('../font/qtzaintextregular-webfont.ttf') format('truetype'),
+         url('../font/qtzaintextregular-webfont.svg#qt_zaintextregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'qt_zaintextblack';
+    src: url('../font/qtzaintextblack-webfont.eot');
+    src: url('../font/qtzaintextblack-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/qtzaintextblack-webfont.woff') format('woff'),
+         url('../font/qtzaintextblack-webfont.ttf') format('truetype'),
+         url('../font/qtzaintextblack-webfont.svg#qt_zaintextblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'qt_zaintextbold';
+    src: url('../font/qtzaintextbold-webfont.eot');
+    src: url('../font/qtzaintextbold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/qtzaintextbold-webfont.woff') format('woff'),
+         url('../font/qtzaintextbold-webfont.ttf') format('truetype'),
+         url('../font/qtzaintextbold-webfont.svg#qt_zaintextbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'qt_zaintextlight';
+    src: url('../font/qtzaintextlight-webfont.eot');
+    src: url('../font/qtzaintextlight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/qtzaintextlight-webfont.woff') format('woff'),
+         url('../font/qtzaintextlight-webfont.ttf') format('truetype'),
+         url('../font/qtzaintextlight-webfont.svg#qt_zaintextlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

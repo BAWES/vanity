@@ -181,7 +181,7 @@ class ReservationController extends Controller
 			$region_id = $_POST['region_id'] ;
 			$city_id = City::model()->findAll(array('select'=>'city_id,city_name','condition'=>"region_id='$region_id'"));
 			$data = CHtml::listData($city_id,'city_id','city_name');
-			echo CHtml::tag('option',array('value' => ''),CHtml::encode('Select City'),true);
+			echo CHtml::tag('option',array('value' => ''),CHtml::encode('المدينة'),true);
 			foreach($data as $id => $value)
 			{
 			echo CHtml::tag('option',array('value' => $id),CHtml::encode($value),true);
@@ -200,10 +200,31 @@ class ReservationController extends Controller
 			$command=Yii::app()->db->createCommand($sql);
             $results=$command->query();
 			$data = CHtml::listData($results,'vanity_id','vanity_number');
-			echo CHtml::tag('option',array('value' => ''),CHtml::encode('Select City'),true);
+			echo CHtml::tag('option',array('value' => ''),CHtml::encode('رقم الهاتف'),true);
 			foreach($data as $id => $value)
 			{
 			echo CHtml::tag('option',array('value' => $id),CHtml::encode($value),true);
 			}
 	}
+	public function actionAjaxCreate()
+	{
+	
+		$model=new Reservation;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Reservation']))
+		{
+			$model->attributes=$_POST['Reservation'];
+			
+			
+			$model->reservation_datetime = new CDbExpression('NOW()');
+			$model->package_id = $_REQUEST['package_id'];
+			if($model->save()){
+			    Vanity::model()->updateByPk($model->vanity_id,array("vanity_status"=>'reserved')); 
+				
+			}	
+		}
+	}	
 }

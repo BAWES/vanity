@@ -30,9 +30,34 @@ class SiteController extends Controller
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 		$package = Package::model()->findall();
+		$model=new Reservation;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Reservation']))
+		{
+			$model->attributes=$_POST['Reservation'];
+			
+			
+			$model->reservation_datetime = new CDbExpression('NOW()');
+			$model->package_id = $_REQUEST['package_id'];
+			if($model->save()){
+			    Vanity::model()->updateByPk($model->vanity_id,array("vanity_status"=>'reserved')); 
+				$this->redirect(array('view','id'=>$model->reservation_id));
+			}	
+		}
+		// fetching available vanity number with related agent
+		$vanityDropdown = CHtml::listData(Vanity::model()->findAll('vanity_status="show"'),'vanity_id', 'vanity_number');$regionDropdown = CHtml::listData(Region::model()->findAll(),'region_id', 'region_name');
 		$this->render('index',array(
-			'package'=>$package,
+		'model'=>$model,
+		'vanityDropdown'=>$vanityDropdown,
+		'regionDropdown'=>$regionDropdown,
+		'package'=>$package,
 		));
+		/*$this->render('index',array(
+			'package'=>$package,
+		));*/
 	}
 
 	/**
