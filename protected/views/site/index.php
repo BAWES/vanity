@@ -38,15 +38,29 @@ $this->pageTitle=Yii::app()->name;
 				// There is a call to performAjaxValidation() commented in generated controller code.
 				// See class documentation of CActiveForm for details on this.
 				'enableAjaxValidation'=>true,
-				   'htmlOptions'=>array(
-                               'onsubmit'=>"return false;",/* Disable normal form submit */
-                               ),
+				   'clientOptions'=>array(
+					'validateOnSubmit'=>true,
+					'validateOnChange'=>false,
+					'validateOnType'=>false,
+					),
+					'enableClientValidation'=>true,
 				)); ?>
 				     <input type="hidden" name="package_id" id="package_id" value="" />
-					
+					 <div class="formerrors">
+					<?php echo $form->error($model,'reservation_name'); ?>
+					 <?php echo $form->error($model,'reservation_phone'); ?>
+					 <?php echo $form->error($model,'reservation_email'); ?>
+					 <?php echo $form->error($model,'region_id'); ?>
+					 <?php echo $form->error($model,'city_id'); ?>
+					 <?php echo $form->error($model,'vanity_id'); ?>
+					 </div>
+					 
 					<?php echo $form->textField($model,'reservation_name',array('placeholder'=>'الأسم','class'=>'name','dir'=>'rtl')); ?>
+					
 					 <?php echo $form->textField($model,'reservation_phone',array('placeholder'=>'رقم الجوال','class'=>'phone','dir'=>'rtl')); ?>
+					
 					<?php echo $form->textField($model,'reservation_email',array('placeholder'=>'البريد الإلكتروني','class'=>'mail','dir'=>'rtl')); ?>
+					
 					<?php echo $form->dropDownList($model,'region_id',$regionDropdown,array(
 					'class'=>'select_one',
 					'prompt'=>'المنطقة',
@@ -57,6 +71,7 @@ $this->pageTitle=Yii::app()->name;
 					'update'=>'#Reservation_city_id',
 					'data'=>array('region_id'=>'js:this.value'),
 					))); ?>
+					
 					<?php
 					$allCities = new CDbCriteria;
 					$allCities->order = 'city_name ASC';
@@ -72,9 +87,11 @@ $this->pageTitle=Yii::app()->name;
 					'data'=>array('city_id'=>'js:this.value'),
 					)));
 					?>
+					
 					  <select name="Reservation[vanity_id]" id="Reservation_vanity_id" class="select_three" dir="rtl">
                           <option value="">رقم الهاتف</option>
                      </select>
+				
                      <?php echo CHtml::submitButton($model->isNewRecord ? 'تم' : 'تم',array('class'=>'next')); ?>
                      <input type="reset" name="" class="reset" value="إلغاء">
                 <?php $this->endWidget(); ?>
@@ -109,7 +126,11 @@ type: 'POST',
 url: '<?php echo Yii::app()->createAbsoluteUrl("reservation/ajaxcreate"); ?>',
 data:data,
 success:function(data){
+if(data==''){
+return false;
+}else{
 $(".bg3").animate({top:'0px'},600);
+}
 },
 error: function(data) { // if error occured
 alert("Error occured.please try again");

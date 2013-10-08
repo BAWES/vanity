@@ -1,7 +1,41 @@
 @charset "utf-8";
 /* CSS Document */
-
-
+#img-wrap { background:url(../images/splash-img.png) no-repeat #753189; height:800px; margin:0 auto; padding:0 0 0 25px; position:relative; width:775px;}
+#img-wrap.thank-you {background:url(../images/thank-you.png) no-repeat #30ab51;}
+#img-wrap.quiz {background:url(../images/quizBg.jpg) no-repeat #753189;}
+#bottom { background-color:#000; bottom:0; height:42px; left:0; padding:18px 25px 0; position:absolute; width:774px;}
+.button { display:block; height:45px; position:absolute; top:550px; left:310px; width:180px;}
+.link-en, .link-ar { display:block; text-decoration:none;}
+.link-en { font:20px 'qt_zaintextlight'; float:left; }
+.link-ar { font:20px 'qt_zaintextbold'; float:right; }
+.yellow a { color:#e4d700;}
+.violet a { color:#cf0072;}
+.errorMessage1 {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #FF0000;
+    font-size: 10pt;
+    left: 20%;
+    padding: 2px;
+    position: absolute;
+    top: 27%;
+    width: 280px;
+    z-index: 100;
+}
+.formerrors {
+    background: none repeat scroll 0 0 #FFFFFF;
+    left: 345px;
+   font-family: 'verdana';
+    position: absolute;
+    text-align: justify;
+    top: 111px;
+    width: 204px;
+	border-radius: 6px 6px 6px 6px;
+}
+.formerrors div {
+    color: #FF0000;
+    font-size: 11px;
+    padding: 1px 0 0 10px;
+}
 *{
 	padding:0px;
 	margin:0px;
