@@ -33,17 +33,23 @@ class AgentController extends Controller
 		if(isset($_POST['Agent']))
 		{
 			$model->attributes=$_POST['Agent'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->agent_id));
+			if($model->save()){
+			 
+			$model_activity = new Activity();
+			$model_activity->text = 'Admin create new agent '.$model->agent_name;
+			$model_activity->usertype = 'admin';
+			$model_activity->datetime = new CDbExpression('NOW()');
+			$model_activity->insert();
+			$this->redirect(array('view','id'=>$model->agent_id));
+		    }
 		}
                 
-                //generate region dropdown list
-        $regionDropdown = CHtml::listData(Region::model()->findAll(), 'region_id', 'region_name');
-
-		$this->render('create',array(
+			//generate region dropdown list
+			$regionDropdown = CHtml::listData(Region::model()->findAll(), 'region_id', 'region_name');
+			$this->render('create',array(
 			'model'=>$model,
-                    'regionDropdown' => $regionDropdown,
-		));
+			'regionDropdown' => $regionDropdown,
+			));
 	}
 
 	/**
@@ -61,8 +67,15 @@ class AgentController extends Controller
 		if(isset($_POST['Agent']))
 		{
 			$model->attributes=$_POST['Agent'];
-			if($model->save())
+			if($model->save()){
+			
+				$model_activity = new Activity();
+				$model_activity->text = 'Admin updated agent '.$model->agent_name;
+				$model_activity->usertype = 'admin';
+				$model_activity->datetime = new CDbExpression('NOW()');
+				$model_activity->insert();
 				$this->redirect(array('view','id'=>$model->agent_id));
+			}	
 		}
                 
                 //generate region dropdown list

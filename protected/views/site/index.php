@@ -126,7 +126,7 @@ type: 'POST',
 url: '<?php echo Yii::app()->createAbsoluteUrl("reservation/ajaxcreate"); ?>',
 data:data,
 success:function(data){
-if(data==''){
+if(data==='validation'){
 return false;
 }else{
 $(".bg3").animate({top:'0px'},600);

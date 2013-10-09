@@ -30,8 +30,14 @@ class ManagerController extends Controller {
 
         if (isset($_POST['Manager'])) {
             $model->attributes = $_POST['Manager'];
-            if ($model->save())
+            if ($model->save()){
+			$model_activity = new Activity();
+			$model_activity->text = 'Admin create new manager '.$model->manager_name;
+			$model_activity->usertype = 'admin';
+			$model_activity->datetime = new CDbExpression('NOW()');
+			$model_activity->insert();
                 $this->redirect(array('view', 'id' => $model->manager_id));
+			}	
         }
 
         //generate region dropdown list
@@ -56,8 +62,14 @@ class ManagerController extends Controller {
 
         if (isset($_POST['Manager'])) {
             $model->attributes = $_POST['Manager'];
-            if ($model->save())
+            if ($model->save()){
+				$model_activity = new Activity();
+				$model_activity->text = 'Admin updated package '.$model->manager_name;
+				$model_activity->usertype = 'admin';
+				$model_activity->datetime = new CDbExpression('NOW()');
+				$model_activity->insert();
                 $this->redirect(array('view', 'id' => $model->manager_id));
+			}	
         }
         
         //generate region dropdown list

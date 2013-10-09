@@ -31,6 +31,7 @@
                     'lastItemCssClass'=>'floatRight',
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/admin/default/index')),
+				array('label'=>'Activities', 'url'=>array('/admin/activity/index')),
 				array('label'=>'Admins', 'url'=>array('/admin/admin/index')),
 				array('label'=>'Regions', 'url'=>array('/admin/region/index')),
 				array('label'=>'Cities', 'url'=>array('/admin/city/index')),

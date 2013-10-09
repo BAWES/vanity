@@ -34,8 +34,14 @@ class RegionController extends Controller
 		if(isset($_POST['Region']))
 		{
 			$model->attributes=$_POST['Region'];
-			if($model->save())
+			if($model->save()){
+			$model_activity = new Activity();
+			$model_activity->text = 'Admin created region '.$model->region_name;
+			$model_activity->usertype = 'admin';
+			$model_activity->datetime = new CDbExpression('NOW()');
+			$model_activity->insert();
 				$this->redirect(array('view','id'=>$model->region_id));
+			}
 		}
 
 		$this->render('create',array(
@@ -58,8 +64,14 @@ class RegionController extends Controller
 		if(isset($_POST['Region']))
 		{
 			$model->attributes=$_POST['Region'];
-			if($model->save())
+			if($model->save()){
+			$model_activity = new Activity();
+			$model_activity->text = 'Admin updated region '.$model->region_name;
+			$model_activity->usertype = 'admin';
+			$model_activity->datetime = new CDbExpression('NOW()');
+			$model_activity->insert();
 				$this->redirect(array('view','id'=>$model->region_id));
+			}	
 		}
 
 		$this->render('update',array(

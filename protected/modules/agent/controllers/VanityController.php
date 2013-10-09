@@ -35,8 +35,15 @@ class VanityController extends Controller
 		{
 			$model->attributes=$_POST['Vanity'];
 			$model->agent_id = Yii::app()->user->getState('agent_id');		
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->vanity_id));
+			if($model->save()){
+			$model_activity = new Activity();
+			$model_activity->text = 'Agent created new number '.$model->vanity_number;
+			$model_activity->usertype = 'agent';
+			$model_activity->datetime = new CDbExpression('NOW()');
+			$model_activity->insert();
+			$this->redirect(array('view','id'=>$model->vanity_id));
+			}
+				
 		}
 
 		$this->render('create',array(
@@ -59,8 +66,15 @@ class VanityController extends Controller
 		if(isset($_POST['Vanity']))
 		{
 			$model->attributes=$_POST['Vanity'];
-			if($model->save())
+			if($model->save()){
+			$model_activity = new Activity();
+			$model_activity->text = 'Agent update number '.$model->vanity_number .' With vanity number ID '.$model->vanity_id;
+			$model_activity->usertype = 'agent';
+			$model_activity->datetime = new CDbExpression('NOW()');
+			$model_activity->insert();
 				$this->redirect(array('view','id'=>$model->vanity_id));
+				
+			}	
 		}
 
 		$this->render('update',array(

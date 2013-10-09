@@ -30,8 +30,15 @@ class CityController extends Controller {
 
         if (isset($_POST['City'])) {
             $model->attributes = $_POST['City'];
-            if ($model->save())
-                $this->redirect(array('view', 'id' => $model->city_id));
+            if ($model->save()){
+			$model_activity = new Activity();
+			$model_activity->text = 'Admin create new city '.$model->city_name;
+			$model_activity->usertype = 'admin';
+			$model_activity->datetime = new CDbExpression('NOW()');
+			$model_activity->insert();
+			$this->redirect(array('view', 'id' => $model->city_id));
+			}
+                
         }
 
         //generate region dropdown list
@@ -56,8 +63,14 @@ class CityController extends Controller {
 
         if (isset($_POST['City'])) {
             $model->attributes = $_POST['City'];
-            if ($model->save())
+            if ($model->save()){
+			    $model_activity = new Activity();
+				$model_activity->text = 'Admin updated city '.$model->city_name;
+				$model_activity->usertype = 'admin';
+				$model_activity->datetime = new CDbExpression('NOW()');
+				$model_activity->insert();
                 $this->redirect(array('view', 'id' => $model->city_id));
+			}	
         }
 
         //generate region dropdown list

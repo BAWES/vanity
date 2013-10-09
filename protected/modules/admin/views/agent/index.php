@@ -38,7 +38,6 @@ $('.search-form form').submit(function(){
                 //'region_id',
 		'agent_name',
 		'agent_email',
-		'agent_password',
 		array(
 			'class'=>'CButtonColumn',
 		),

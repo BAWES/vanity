@@ -73,8 +73,15 @@ class ReservationController extends Controller
 			$model->attributes=$_POST['Reservation'];
 			//$model->vanity_status = 'reserved';
 			$model->reservation_datetime = new CDbExpression('NOW()');
-			if($model->save())
+			if($model->save()){
+			$model_vanity=Vanity::model()->findByPk($model->vanity_id);
+			$model_activity = new Activity();
+			$model_activity->text = 'Agent reserved new number '.$model_vanity->vanity_number;
+			$model_activity->usertype = 'agent';
+			$model_activity->datetime = new CDbExpression('NOW()');
+			$model_activity->insert();
 				$this->redirect(array('view','id'=>$model->reservation_id));
+			}	
 		}
 		// fetching available package
 		$packageDropdown = CHtml::listData(Package::model()->findAll(), 'package_id', 'package_name');
@@ -104,8 +111,16 @@ class ReservationController extends Controller
 		if(isset($_POST['Reservation']))
 		{
 			$model->attributes=$_POST['Reservation'];
-			if($model->save())
+			if($model->save()){
+			$model_vanity=Vanity::model()->findByPk($model->vanity_id);
+			$model_activity = new Activity();
+			$model_activity->text = 'Agent updated reservation number '.$model_vanity->vanity_number.' With reservation ID '.$model->reservation_id;
+			$model_activity->usertype = 'agent';
+			$model_activity->datetime = new CDbExpression('NOW()');
+			$model_activity->insert();
 				$this->redirect(array('view','id'=>$model->reservation_id));
+				
+			}	
 		}
         // fetching available package
 		$packageDropdown = CHtml::listData(Package::model()->findAll(), 'package_id', 'package_name');

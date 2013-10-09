@@ -30,8 +30,14 @@ class PackageController extends Controller {
 
         if (isset($_POST['Package'])) {
             $model->attributes = $_POST['Package'];
-            if ($model->save())
+            if ($model->save()){
+				$model_activity = new Activity();
+				$model_activity->text = 'Admin updated package '.$model->package_name;
+				$model_activity->usertype = 'admin';
+				$model_activity->datetime = new CDbExpression('NOW()');
+				$model_activity->insert();
                 $this->redirect(array('view', 'id' => $model->package_id));
+			}	
         }
 
         $this->render('create', array(
@@ -52,8 +58,14 @@ class PackageController extends Controller {
 
         if (isset($_POST['Package'])) {
             $model->attributes = $_POST['Package'];
-            if ($model->save())
-                $this->redirect(array('view', 'id' => $model->package_id));
+            if ($model->save()){
+			$model_activity = new Activity();
+			$model_activity->text = 'Admin updated package '.$model->package_name;
+			$model_activity->usertype = 'admin';
+			$model_activity->datetime = new CDbExpression('NOW()');
+			$model_activity->insert();
+            $this->redirect(array('view', 'id' => $model->package_id));
+			}	
         }
 
         $this->render('update', array(

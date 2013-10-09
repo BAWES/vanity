@@ -65,10 +65,18 @@ class ReservationController extends Controller
 			
 			$model->reservation_datetime = new CDbExpression('NOW()');
 			$model->package_id = $_REQUEST['package_id'];
-			if($model->save()){
-			    Vanity::model()->updateByPk($model->vanity_id,array("vanity_status"=>'reserved')); 
+			/*if($model->save()){
+			    $model_vanity=Vanity::model()->findByPk($model->vanity_id);
+				$model_agent=Agent::model()->findByPk($model->agent_id);
+				$model_region=Region::model()->findByPk($model->package_id);
+				$model_activity = new Activity();
+				$model_activity->text = 'User '.$model->reservation_name.' made new reservation ('.$model_vanity->vanity_number.') , assigned to agent '.$model_agent->agent_name.' in area '.$model_region->region_name.' ';
+				$model_activity->usertype = 'user';
+				$model_activity->datetime = new CDbExpression('NOW()');
+				$model_activity->insert();
+				Vanity::model()->updateByPk($model->vanity_id,array("vanity_status"=>'reserved')); 
 				$this->redirect(array('view','id'=>$model->reservation_id));
-			}	
+			}*/		
 		}
 		// fetching available vanity number with related agent
 		$vanityDropdown = CHtml::listData(Vanity::model()->findAll('vanity_status="show"'),'vanity_id', 'vanity_number');$regionDropdown = CHtml::listData(Region::model()->findAll(),'region_id', 'region_name');
@@ -216,15 +224,24 @@ class ReservationController extends Controller
 
 		if(isset($_POST['Reservation']))
 		{
+		    
 			$model->attributes=$_POST['Reservation'];
-			
-			
 			$model->reservation_datetime = new CDbExpression('NOW()');
-			$model->package_id = $_REQUEST['package_id'];
+		    $model->package_id = $_REQUEST['package_id'];
 			if($model->save()){
+			    $model_vanity=Vanity::model()->findByPk($model->vanity_id);
+				$model_region=Region::model()->findByPk($model->region_id);
+				$model_agent=Agent::model()->findByAttributes(array('region_id'=>$model->region_id));
+				$model_activity = new Activity();
+				$model_activity->text = 'User '.$model->reservation_name.' reserved number '.$model_vanity->vanity_number.' assigned to agent '.$model_agent->agent_name. 'bhavesh in area '.$model_region->region_name ;
+				$model_activity->usertype = 'user';
+				$model_activity->datetime = new CDbExpression('NOW()');
+				$model_activity->insert();
 			    Vanity::model()->updateByPk($model->vanity_id,array("vanity_status"=>'reserved')); 
 				
-			}	
+			}else{
+                 echo "validation";
+            }			
 		}
 	}	
 }
