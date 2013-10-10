@@ -36,7 +36,7 @@ class AgentController extends Controller
 			if($model->save()){
 			 
 			$model_activity = new Activity();
-			$model_activity->text = 'Admin create new agent '.$model->agent_name;
+			$model_activity->text = Yii::app()->user->name.' created new agent '.$model->agent_name;
 			$model_activity->usertype = 'admin';
 			$model_activity->datetime = new CDbExpression('NOW()');
 			$model_activity->insert();
@@ -70,7 +70,7 @@ class AgentController extends Controller
 			if($model->save()){
 			
 				$model_activity = new Activity();
-				$model_activity->text = 'Admin updated agent '.$model->agent_name;
+				$model_activity->text = Yii::app()->user->name.' updated agent '.$model->agent_name;
 				$model_activity->usertype = 'admin';
 				$model_activity->datetime = new CDbExpression('NOW()');
 				$model_activity->insert();
@@ -103,8 +103,15 @@ class AgentController extends Controller
 		if(isset($_POST['Agent']))
 		{
 			$model->attributes=$_POST['Agent'];
-			if($model->save())
+			if($model->save()){
+                            $model_activity = new Activity();
+				$model_activity->text = Yii::app()->user->name.' changed agent password for '.$model->agent_name;
+				$model_activity->usertype = 'admin';
+				$model_activity->datetime = new CDbExpression('NOW()');
+				$model_activity->insert();
 				$this->redirect(array('view','id'=>$model->agent_id));
+                                
+                        }
 		}
 
 		$this->render('changePassword',array(
@@ -123,10 +130,16 @@ class AgentController extends Controller
 		{
 			// we only allow deletion via POST request
 			$this->loadModel($id)->delete();
+                        
+                        $model_activity = new Activity();
+				$model_activity->text = Yii::app()->user->name.' deleted agent '.$model->agent_name;
+				$model_activity->usertype = 'admin';
+				$model_activity->datetime = new CDbExpression('NOW()');
+				$model_activity->insert();
 
 			// if AJAX request (triggered by deletion via agent grid view), we should not redirect the browser
 			if(!isset($_GET['ajax']))
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('agent'));
+				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
 		}
 		else
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');

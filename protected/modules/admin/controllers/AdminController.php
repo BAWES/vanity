@@ -33,8 +33,14 @@ class AdminController extends Controller
 		if(isset($_POST['Admin']))
 		{
 			$model->attributes=$_POST['Admin'];
-			if($model->save())
+			if($model->save()){
+                            $model_activity = new Activity();
+                            $model_activity->text = Yii::app()->user->name.' created new admin '.$model->admin_name;
+                            $model_activity->usertype = 'admin';
+                            $model_activity->datetime = new CDbExpression('NOW()');
+                            $model_activity->insert();
 				$this->redirect(array('view','id'=>$model->admin_id));
+                        }
 		}
 
 		$this->render('create',array(
@@ -57,8 +63,14 @@ class AdminController extends Controller
 		if(isset($_POST['Admin']))
 		{
 			$model->attributes=$_POST['Admin'];
-			if($model->save())
+			if($model->save()){
+                            $model_activity = new Activity();
+                            $model_activity->text = Yii::app()->user->name.' updated admin details for '.$model->admin_name;
+                            $model_activity->usertype = 'admin';
+                            $model_activity->datetime = new CDbExpression('NOW()');
+                            $model_activity->insert();
 				$this->redirect(array('view','id'=>$model->admin_id));
+                        }
 		}
 
 		$this->render('update',array(
@@ -82,8 +94,15 @@ class AdminController extends Controller
 		if(isset($_POST['Admin']))
 		{
 			$model->attributes=$_POST['Admin'];
-			if($model->save())
+			if($model->save()){
+                            $model_activity = new Activity();
+                            $model_activity->text = Yii::app()->user->name.' changed password for admin '.$model->admin_name;
+                            $model_activity->usertype = 'admin';
+                            $model_activity->datetime = new CDbExpression('NOW()');
+                            $model_activity->insert();
 				$this->redirect(array('view','id'=>$model->admin_id));
+                                
+                        }
 		}
 
 		$this->render('changePassword',array(
@@ -101,11 +120,19 @@ class AdminController extends Controller
 		if(Yii::app()->request->isPostRequest)
 		{
 			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
+			$model = $this->loadModel($id); 
+                        
+                        $model->delete();
+                        
+                        $model_activity = new Activity();
+                            $model_activity->text = Yii::app()->user->name.' deleted admin '.$model->admin_name;
+                            $model_activity->usertype = 'admin';
+                            $model_activity->datetime = new CDbExpression('NOW()');
+                            $model_activity->insert();
 
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_GET['ajax']))
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
 		}
 		else
 			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');

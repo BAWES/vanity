@@ -32,7 +32,7 @@ class PackageController extends Controller {
             $model->attributes = $_POST['Package'];
             if ($model->save()){
 				$model_activity = new Activity();
-				$model_activity->text = 'Admin updated package '.$model->package_name;
+				$model_activity->text = Yii::app()->user->name.' created package '.$model->package_name;
 				$model_activity->usertype = 'admin';
 				$model_activity->datetime = new CDbExpression('NOW()');
 				$model_activity->insert();
@@ -60,7 +60,7 @@ class PackageController extends Controller {
             $model->attributes = $_POST['Package'];
             if ($model->save()){
 			$model_activity = new Activity();
-			$model_activity->text = 'Admin updated package '.$model->package_name;
+			$model_activity->text = Yii::app()->user->name.' updated package '.$model->package_name;
 			$model_activity->usertype = 'admin';
 			$model_activity->datetime = new CDbExpression('NOW()');
 			$model_activity->insert();
@@ -79,11 +79,18 @@ class PackageController extends Controller {
      * @param integer $id the ID of the model to be deleted
      */
     public function actionDelete($id) {
-        $this->loadModel($id)->delete();
+        $model = $this->loadModel($id);
+        $model->delete();
+        
+        $model_activity = new Activity();
+				$model_activity->text = Yii::app()->user->name.' deleted package '.$model->package_name;
+				$model_activity->usertype = 'admin';
+				$model_activity->datetime = new CDbExpression('NOW()');
+				$model_activity->insert();
 
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
         if (!isset($_GET['ajax']))
-            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
     }
 
 

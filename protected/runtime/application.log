@@ -378,3 +378,25 @@ Stack trace:
 REQUEST_URI=/vanity/index.php/admin/activity/index
 HTTP_REFERER=http://localhost/vanity/index.php/admin/admin/view/id/3
 ---
+2013/10/10 15:22:44 [error] [php] Object of class CWebUser could not be converted to string (C:\wamp\www\vanity\protected\modules\admin\controllers\AgentController.php:39)
+Stack trace:
+#0 C:\wamp\yii\framework\web\CController.php(286): AgentController->runAction()
+#1 C:\wamp\yii\framework\web\CController.php(265): AgentController->runActionWithFilters()
+#2 C:\wamp\yii\framework\web\CWebApplication.php(282): AgentController->run()
+#3 C:\wamp\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\wamp\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 C:\wamp\www\vanity\index.php(13): CWebApplication->run()
+REQUEST_URI=/vanity/index.php/admin/agent/create
+in C:\wamp\www\vanity\protected\modules\admin\controllers\AgentController.php (39)
+in C:\wamp\www\vanity\index.php (13)
+2013/10/10 15:33:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "admin".' in C:\wamp\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\wamp\yii\framework\web\CController.php(270): CController->missingAction('admin')
+#1 C:\wamp\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#2 C:\wamp\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/admin/adm...')
+#3 C:\wamp\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\wamp\www\vanity\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/vanity/index.php/admin/admin/admin
+HTTP_REFERER=http://localhost/vanity/index.php/admin/admin/view/id/4
+---

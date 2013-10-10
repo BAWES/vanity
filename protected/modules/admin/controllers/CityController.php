@@ -32,7 +32,7 @@ class CityController extends Controller {
             $model->attributes = $_POST['City'];
             if ($model->save()){
 			$model_activity = new Activity();
-			$model_activity->text = 'Admin create new city '.$model->city_name;
+			$model_activity->text = Yii::app()->user->name.' create new city '.$model->city_name;
 			$model_activity->usertype = 'admin';
 			$model_activity->datetime = new CDbExpression('NOW()');
 			$model_activity->insert();
@@ -65,7 +65,7 @@ class CityController extends Controller {
             $model->attributes = $_POST['City'];
             if ($model->save()){
 			    $model_activity = new Activity();
-				$model_activity->text = 'Admin updated city '.$model->city_name;
+				$model_activity->text = Yii::app()->user->name.' updated city '.$model->city_name;
 				$model_activity->usertype = 'admin';
 				$model_activity->datetime = new CDbExpression('NOW()');
 				$model_activity->insert();
@@ -88,11 +88,19 @@ class CityController extends Controller {
      * @param integer $id the ID of the model to be deleted
      */
     public function actionDelete($id) {
-        $this->loadModel($id)->delete();
+        $model = $this->loadModel($id);
+                
+                $model->delete();
+        
+        $model_activity = new Activity();
+			$model_activity->text = Yii::app()->user->name.' deleted city '.$model->city_name;
+			$model_activity->usertype = 'admin';
+			$model_activity->datetime = new CDbExpression('NOW()');
+			$model_activity->insert();
 
         // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
         if (!isset($_GET['ajax']))
-            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
     }
 
     /**
