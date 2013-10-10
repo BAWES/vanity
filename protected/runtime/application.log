@@ -362,3 +362,19 @@ Stack trace:
 REQUEST_URI=/vanity/index.php/admin/activity/index
 HTTP_REFERER=http://localhost/vanity/index.php/admin/activity/admin
 ---
+2013/10/10 15:20:29 [error] [exception.CException] exception 'CException' with message 'ActivityController cannot find the requested view "admin".' in C:\wamp\yii\framework\web\CController.php:878
+Stack trace:
+#0 C:\wamp\yii\framework\web\CController.php(782): CController->renderPartial('admin', Array, true)
+#1 C:\wamp\www\vanity\protected\modules\admin\controllers\ActivityController.php(97): CController->render('admin', Array)
+#2 C:\wamp\yii\framework\web\actions\CInlineAction.php(49): ActivityController->actionIndex()
+#3 C:\wamp\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\wamp\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\yii\framework\web\CWebApplication.php(282): CController->run('index')
+#7 C:\wamp\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/activity/...')
+#8 C:\wamp\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 C:\wamp\www\vanity\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/vanity/index.php/admin/activity/index
+HTTP_REFERER=http://localhost/vanity/index.php/admin/admin/view/id/3
+---

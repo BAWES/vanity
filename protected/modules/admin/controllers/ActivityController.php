@@ -92,7 +92,7 @@ class ActivityController extends Controller
 		if(isset($_GET['Activity']))
 			$model->attributes=$_GET['Activity'];
 
-		$this->render('admin',array(
+		$this->render('index',array(
 			'model'=>$model,
 		));
 	}
