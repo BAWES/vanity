@@ -10,7 +10,6 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'List Activity', 'url'=>array('index')),
 	array('label'=>'Delete Activity', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Activity', 'url'=>array('admin')),
 );
 ?>
 
