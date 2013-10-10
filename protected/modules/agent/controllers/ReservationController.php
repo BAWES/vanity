@@ -21,10 +21,12 @@ class ReservationController extends Controller
 		));
 	}
 
+        
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
+        /*
 	public function actionCreate()
 	{
 	
@@ -60,12 +62,15 @@ class ReservationController extends Controller
 		'regionDropdown'=>$regionDropdown,
 		));
 	}
+         * 
+         */
 
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
+        /*
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
@@ -99,6 +104,8 @@ class ReservationController extends Controller
 			'regionDropdown'=>$regionDropdown,
 		));
 	}
+         * 
+         */
 
 	/**
 	 * Deletes a particular model.
@@ -115,26 +122,16 @@ class ReservationController extends Controller
 	}
 
 	/**
-	 * Lists all models.
-	 */
-	public function actionIndex()
-	{
-		$dataProvider=new CActiveDataProvider('Reservation');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-	}
-	/**
 	 * Manages all models.
 	 */
-	public function actionAdmin()
+	public function actionIndex()
 	{
 		$model=new Reservation('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Reservation']))
 			$model->attributes=$_GET['Reservation'];
 
-		$this->render('admin',array(
+		$this->render('index',array(
 			'model'=>$model,
 		));
 	}
