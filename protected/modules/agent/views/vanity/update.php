@@ -12,7 +12,6 @@ $this->menu=array(
 	array('label'=>'List Vanity', 'url'=>array('index')),
 	array('label'=>'Create Vanity', 'url'=>array('create')),
 	array('label'=>'View Vanity', 'url'=>array('view', 'id'=>$model->vanity_id)),
-	array('label'=>'Manage Vanity', 'url'=>array('admin')),
 );
 ?>
 

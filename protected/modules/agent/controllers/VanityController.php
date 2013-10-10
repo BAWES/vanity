@@ -123,23 +123,6 @@ class VanityController extends Controller
 	}
 
 	/**
-	 * Lists all models.
-	 */
-	public function actionIndex()
-	{
-	    
-		$dataProvider=new CActiveDataProvider('Vanity',
-		array(
-		'criteria'=>array(
-        'condition'=>'agent_id= '.Yii::app()->user->getState('agent_id'),
-		),
-		)
-		);
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-	}
-	/**
 	 * Lists all sold number.
 	 */
 	public function actionSold()
@@ -157,7 +140,7 @@ class VanityController extends Controller
 	/**
 	 * Manages all models.
 	 */
-	public function actionAdmin()
+	public function actionIndex()
 	{
 		$model=new Vanity('search');
 		$model->unsetAttributes();  // clear any default values
@@ -169,7 +152,7 @@ class VanityController extends Controller
 		}
 			
             
-		$this->render('admin',array(
+		$this->render('index',array(
 			'model'=>$model,
 		));
 	}

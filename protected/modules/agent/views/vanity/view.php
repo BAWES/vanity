@@ -12,7 +12,6 @@ $this->menu=array(
 	array('label'=>'Add Number', 'url'=>array('create')),
 	array('label'=>'Update Number', 'url'=>array('update', 'id'=>$model->vanity_id)),
 	array('label'=>'Delete Number', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->vanity_id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Number', 'url'=>array('admin')),
 );
 ?>
 

@@ -7,8 +7,9 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Add Number', 'url'=>array('create')),
-	array('label'=>'Manage Vanity', 'url'=>array('admin')),
+	
+	array('label'=>'List Vanity', 'url'=>array('index')),
+    array('label'=>'Add Number', 'url'=>array('create')),
 );
 ?>
 
