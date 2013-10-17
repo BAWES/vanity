@@ -537,3 +537,12 @@ Stack trace:
 REQUEST_URI=/vanity/index.php/agent/vanity/admin
 HTTP_REFERER=http://localhost/vanity/index.php/agent/vanity/index
 ---
+2013/10/17 12:12:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "agent/agent/vanity/sold".' in C:\wamp\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\wamp\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('agent/agent/van...')
+#1 C:\wamp\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\wamp\www\vanity\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/vanity/index.php/agent/agent/vanity/sold
+HTTP_REFERER=http://localhost/vanity/index.php/agent/vanity/index
+---

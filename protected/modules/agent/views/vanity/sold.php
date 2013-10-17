@@ -3,13 +3,14 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Vanities'=>array('index'),
+	'Vanity Numbers'=>array('index'),
+        'Sold Numbers'
 );
 
 $this->menu=array(
-	
-	array('label'=>'List Vanity', 'url'=>array('index')),
-    array('label'=>'Add Number', 'url'=>array('create')),
+	array('label'=>'Add Number', 'url'=>array('create')),
+	array('label'=>'View Vanity Numbers', 'url'=>array('index')),
+    
 );
 ?>
 

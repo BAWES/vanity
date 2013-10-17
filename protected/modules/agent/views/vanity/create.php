@@ -3,12 +3,12 @@
 /* @var $model Vanity */
 
 $this->breadcrumbs=array(
-	'Vanities'=>array('index'),
+	'Vanity Numbers'=>array('index'),
 	'Create',
 );
 
 $this->menu=array(
-	array('label'=>'List Number', 'url'=>array('index')),
+	array('label'=>'List Numbers', 'url'=>array('index')),
 );
 ?>
 

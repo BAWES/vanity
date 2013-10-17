@@ -84,6 +84,8 @@ class Vanity extends CActiveRecord
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
+                
+                $criteria->condition = "vanity_status != 'sold'";
 
 		$criteria->compare('vanity_id',$this->vanity_id,true);
 		$criteria->compare('agent_id',$this->agent_id);

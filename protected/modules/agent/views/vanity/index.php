@@ -3,12 +3,12 @@
 /* @var $model Vanity */
 
 $this->breadcrumbs=array(
-	'Vanities'=>array('index'),
-	'Manage',
+	'Vanity Numbers'=>array('index'),
 );
 
 $this->menu=array(
 	array('label'=>'Add Number', 'url'=>array('create')),
+	array('label'=>'View Sold Numbers', 'url'=>array('sold')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -25,7 +25,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Vanity Number</h1>
+<h1>Manage Vanity Numbers</h1>
 
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
@@ -49,5 +49,3 @@ $('.search-form form').submit(function(){
 		),
 	),
 )); ?>
-
-<a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/agent/vanity/sold">Sold Numbers</a>
