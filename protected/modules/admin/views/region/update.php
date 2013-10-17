@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Regions'=>array('index'),
-	$model->region_id=>array('view','id'=>$model->region_id),
+	$model->region_name=>array('view','id'=>$model->region_id),
 	'Update',
 );
 
@@ -15,6 +15,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Update Region <?php echo $model->region_id; ?></h1>
+<h1>Update Region - <?php echo $model->region_name; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

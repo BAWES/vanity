@@ -32,7 +32,7 @@ $('.search-form form').submit(function(){
 	'columns'=>array(
 		'admin_name',
 		'admin_email',
-		'admin_password',
+		//'admin_password',
 		array(
 			'class'=>'CButtonColumn',
 		),

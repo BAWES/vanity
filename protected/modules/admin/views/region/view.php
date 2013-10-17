@@ -17,10 +17,33 @@ $this->menu=array(
 
 <h1>View Region - <?php echo $model->region_name; ?></h1>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'region_id',
-		'region_name',
-	),
-)); ?>
+<br/>
+<h2>Region Managers</h2>
+<ul>
+    <?php
+    foreach($model->managers as $manager){
+        echo "<li><a href='".Yii::app()->createUrl('admin/manager/view',array('id'=>$manager->manager_id))."'>".$manager->manager_name."</a></li>";
+    }
+    ?>
+</ul>
+
+<br/>
+<h2>Region Agents</h2>
+<ul>
+    <?php
+    foreach($model->agents as $agent){
+        echo "<li><a href='".Yii::app()->createUrl('admin/agent/view',array('id'=>$agent->agent_id))."'>".$agent->agent_name."</a></li>";
+    }
+    ?>
+</ul>
+
+<br/>
+<h2>Region Cities</h2>
+<ul>
+    <?php
+    foreach($model->cities as $city){
+        echo "<li><a href='".Yii::app()->createUrl('admin/city/view',array('id'=>$city->city_id))."'>".$city->city_name."</a></li>";
+    }
+    ?>
+</ul>
+
