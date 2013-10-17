@@ -6,9 +6,9 @@ $this->breadcrumbs=array(
 	'Packages'=>array('index'),
 	'Manage',
 );
-
+$this->layout = 'column1';
 $this->menu=array(
-	array('label'=>'Create Package', 'url'=>array('create')),
+	//array('label'=>'Create Package', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -35,8 +35,9 @@ $('.search-form form').submit(function(){
 	'columns'=>array(
 		//'package_id',
 		'package_name',
-		array(
+                'reservationsCount',
+		/*array(
 			'class'=>'CButtonColumn',
-		),
+		),*/
 	),
 )); ?>

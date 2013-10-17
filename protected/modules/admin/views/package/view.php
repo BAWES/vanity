@@ -9,9 +9,9 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
 	array('label'=>'List Packages', 'url'=>array('index')),
-	array('label'=>'Create Package', 'url'=>array('create')),
-	array('label'=>'Update Package', 'url'=>array('update', 'id'=>$model->package_id)),
-	array('label'=>'Delete Package', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->package_id),'confirm'=>'Are you sure you want to delete this item?')),
+	//array('label'=>'Create Package', 'url'=>array('create')),
+	//array('label'=>'Update Package', 'url'=>array('update', 'id'=>$model->package_id)),
+	//array('label'=>'Delete Package', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->package_id),'confirm'=>'Are you sure you want to delete this item?')),
 );
 ?>
 

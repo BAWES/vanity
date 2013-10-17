@@ -45,6 +45,7 @@ class Package extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'reservations' => array(self::HAS_MANY, 'Reservation', 'package_id'),
+			'reservationsCount' => array(self::STAT, 'Reservation', 'package_id'),
 		);
 	}
 
@@ -56,6 +57,7 @@ class Package extends CActiveRecord
 		return array(
 			'package_id' => 'Package',
 			'package_name' => 'Package Name',
+                        'reservationsCount' => 'Total Reservations',
 		);
 	}
 

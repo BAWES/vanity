@@ -1,8 +1,31 @@
 <?php
-$this->breadcrumbs=array(
-	$this->module->id,
-);
+/* @var $agentActivity Activity */
+/* @var $userActivity Activity */
+/* @var $adminActivity Activity */
 ?>
-<h1>Welcome</h1>
+<h2>Latest Admin Activity</h2>
+<ul>
+    <?php 
+    foreach($adminActivity as $activity){
+        echo "<li><b>".$activity->datetime."</b> - ".$activity->text."</li>";
+     } 
+    ?>
+</ul>
 
-<p><?php echo Yii::app()->user->name; ?></p>
+<h2>Latest Agent Activity</h2>
+<ul>
+    <?php 
+    foreach($agentActivity as $activity){
+        echo "<li><b>".$activity->datetime."</b> - ".$activity->text."</li>";
+     } 
+    ?>
+</ul>
+
+<h2>Latest User Activity</h2>
+<ul>
+    <?php 
+    foreach($userActivity as $activity){
+        echo "<li><b>".$activity->datetime."</b> - ".$activity->text."</li>";
+     } 
+    ?>
+</ul>

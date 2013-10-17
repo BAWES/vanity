@@ -38,6 +38,7 @@ $('.search-form form').submit(function(){
                 //'region_id',
 		'agent_name',
 		'agent_email',
+                'vanityCount',
 		array(
 			'class'=>'CButtonColumn',
 		),

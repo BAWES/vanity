@@ -78,6 +78,7 @@ class Agent extends CActiveRecord {
         return array(
             'region' => array(self::BELONGS_TO, 'Region', 'region_id'),
             'vanities' => array(self::HAS_MANY, 'Vanity', 'agent_id'),
+            'vanityCount' => array(self::STAT, 'Vanity', 'agent_id'),
         );
     }
 
@@ -92,6 +93,7 @@ class Agent extends CActiveRecord {
             'agent_email' => 'Agent Email',
             'agent_password' => 'Agent Password',
             'region_search' => 'Region',
+            'vanityCount' => 'Vanity Numbers',
         );
     }
 

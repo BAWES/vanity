@@ -233,7 +233,7 @@ class ReservationController extends Controller
 				$model_region=Region::model()->findByPk($model->region_id);
 				$model_agent=Agent::model()->findByAttributes(array('region_id'=>$model->region_id));
 				$model_activity = new Activity();
-				$model_activity->text = 'User '.$model->reservation_name.' reserved number '.$model_vanity->vanity_number.' assigned to agent '.$model_agent->agent_name. 'bhavesh in area '.$model_region->region_name ;
+				$model_activity->text = 'User '.$model->reservation_name.' reserved number '.$model_vanity->vanity_number.' assigned to agent '.$model_agent->agent_name. ' in area '.$model_region->region_name ;
 				$model_activity->usertype = 'user';
 				$model_activity->datetime = new CDbExpression('NOW()');
 				$model_activity->insert();

@@ -3,8 +3,22 @@
 class DefaultController extends Controller {
 
     public function actionIndex() {
-        $this->layout='column2';
-        $this->render('index');
+        $this->layout='column1';
+        
+        $criteria = new CDbCriteria();
+        $criteria->limit = 5;
+        $criteria->condition = "usertype='user'";
+        $userActivity = Activity::model()->findAll($criteria);
+        
+        $criteria->condition = "usertype='agent'";
+        $agentActivity = Activity::model()->findAll($criteria);
+
+        $criteria->condition = "usertype='admin'";
+        $adminActivity = Activity::model()->findAll($criteria);
+        
+        $this->render('index',array('userActivity'=>$userActivity,
+                                    'agentActivity'=>$agentActivity,
+                                    'adminActivity'=>$adminActivity));
     }
 
     public function actionError() {
