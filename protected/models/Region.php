@@ -47,8 +47,11 @@ class Region extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'agents' => array(self::HAS_MANY, 'Agent', 'region_id'),
+			'agentCount' => array(self::STAT, 'Agent', 'region_id'),
 			'cities' => array(self::HAS_MANY, 'City', 'region_id'),
+			'cityCount' => array(self::STAT, 'City', 'region_id'),
 			'managers' => array(self::HAS_MANY, 'Manager', 'region_id'),
+			'managerCount' => array(self::STAT, 'Manager', 'region_id'),
 		);
 	}
 

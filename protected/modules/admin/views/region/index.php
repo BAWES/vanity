@@ -35,6 +35,21 @@ $('.search-form form').submit(function(){
 	'columns'=>array(
 		//'region_id',
 		'region_name',
+                array(
+                    'name'=>'Cities',
+                    'value'=>'$data->cityCount',
+                    'filter'=>false,
+                ),
+                array(
+                    'name'=>'Agents',
+                    'value'=>'$data->agentCount',
+                    'filter'=>false,
+                ),
+                array(
+                    'name'=>'Managers',
+                    'value'=>'$data->managerCount',
+                    'filter'=>false,
+                ),
 		array(
 			'class'=>'CButtonColumn',
 		),
