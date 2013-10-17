@@ -22,5 +22,7 @@ $this->menu=array(
 		//'agent_id',
 		'agent_name',
 		'agent_email',
+                'vanityCount',
+                'soldVanityCount',
 	),
 )); ?>

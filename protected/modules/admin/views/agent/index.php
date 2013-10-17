@@ -38,7 +38,16 @@ $('.search-form form').submit(function(){
                 //'region_id',
 		'agent_name',
 		'agent_email',
-                'vanityCount',
+                array(
+                    'name'=>'Numbers Managed',
+                    'value'=>'$data->vanityCount',
+                    'filter'=>false,
+                ),
+                array(
+                    'name'=>'Numbers Sold',
+                    'value'=>'$data->soldVanityCount',
+                    'filter'=>false,
+                ),
 		array(
 			'class'=>'CButtonColumn',
 		),
