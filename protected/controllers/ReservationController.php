@@ -227,7 +227,7 @@ class ReservationController extends Controller
 		    
 			$model->attributes=$_POST['Reservation'];
 			$model->reservation_datetime = new CDbExpression('NOW()');
-		    $model->package_id = $_REQUEST['package_id'];
+		    $model->package_id = (int) $_REQUEST['package_id'];
 			if($model->save()){
 			    $model_vanity=Vanity::model()->findByPk($model->vanity_id);
 				$model_region=Region::model()->findByPk($model->region_id);

@@ -33,10 +33,10 @@
 				array('label'=>'Dashboard', 'url'=>array('/admin/default/index')),
 				//array('label'=>'Activities', 'url'=>array('/admin/activity/index')),
 				array('label'=>'Admins', 'url'=>array('/admin/admin/index')), 
-				array('label'=>'Regions', 'url'=>array('/admin/region/index')),
-				array('label'=>'Cities', 'url'=>array('/admin/city/index')),
 				array('label'=>'Managers', 'url'=>array('/admin/manager/index')),
 				array('label'=>'Agents', 'url'=>array('/admin/agent/index')),
+                                array('label'=>'Regions', 'url'=>array('/admin/region/index')),
+				array('label'=>'Cities', 'url'=>array('/admin/city/index')),
 				array('label'=>'Packages', 'url'=>array('/admin/package/index')),
 				array('label'=>'Login', 'url'=>array('/admin/default/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/admin/default/logout'), 'visible'=>!Yii::app()->user->isGuest)
