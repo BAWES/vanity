@@ -9,7 +9,7 @@
    <?php echo CHtml::encode($data->vanity_number); ?>
 </div>
 <div style="float:right">
-<b><a href='<?php echo Yii::app()->createUrl('agent/vanity/cancelsale', array('id' => $data->vanity_id))?>'> Cancel Sale </a>
+<b><a href='<?php echo Yii::app()->createUrl('agent/vanity/cancelsale', array('id' => $data->vanity_id))?>'> Cancel Sale </a></b>
 </div>
 <br>
 </div>
