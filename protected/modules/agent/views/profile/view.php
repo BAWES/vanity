@@ -3,7 +3,7 @@
 /* @var $model Agent */
 
 $this->breadcrumbs=array(
-	'profile'=>array('index'),
+	'Profile'=>array('index'),
 	
 );
 
@@ -28,6 +28,8 @@ $this->widget('zii.widgets.CDetailView', array(
 		),
 		'agent_name',
 		'agent_email',
+                'vanityCount',
+                'soldVanityCount'
 		
 	),
 )); ?>
