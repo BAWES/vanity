@@ -15,7 +15,7 @@
 <div class="wrapper">
 <?php echo $content; ?>
 	<div class="footer colorful">
-		<a href="javascript:void(0)">www.sa.zaim.com</a>
+		<a href="javascript:void(0)">www.sa.zain.com</a>
 		<a href="javascript:void(0)">زيـن. عالـم جميـل</a>
 	</div><!--footer-->
     
