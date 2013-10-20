@@ -29,7 +29,7 @@ $this->pageTitle=Yii::app()->name;
         
         <div class="form_wrapper">
             <div class="formbg">
-                <h1>مـزايـا</h1>
+                <h1 id="h1txt"></h1>
                 
 				<?php $form=$this->beginWidget('CActiveForm', array(
 				'id'=>'reservation-form',

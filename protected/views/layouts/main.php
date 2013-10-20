@@ -25,6 +25,7 @@
 $(document).ready(function() {
 	$(".btnMaza").click(function(event) {
 		$('#package_id').val(event.target.id);
+		$('#h1txt').text($(this).text());	
 		$(".bg2").animate({top:'0px'},600);
 	});
 	$(".next").click(function() {
