@@ -7,21 +7,14 @@ $this->pageTitle=Yii::app()->name;
         <div class="logo">
             <a href="javascript:void(0)"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" width="78" alt="Zain (Logo)"></a>
         </div><!--logo-->
-        <div class="mazorspeed">
+		<div class="mazorspeed">
             <div class="mazorspeed_box">
-			<?php 
-			$i=1;
-			foreach($package as $val){ 
-			$class =  ($i%2==0) ? '' : 'btnSpeed'; ?>
- 		        <a class="btnMaza <?=$class; ?>" id="<?=$val->package_id;?>" href="javascript:void(0)"><?php echo $val->package_name; ?></a><!--btnMaza-->
-				<?php if($i%2==0){?>
-                <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/or.png" width="100" alt="">
-				<?php } ?>
-                <!--<a class="btnSpeed btnMaza" href="javascript:void(0)">SPEED 4G</a>--><!--btnSpeed-->
-			<?php $i++; } ?>	
+                <a class="btnMaza" id="1" href="javascript:void(0)">MAZAYA</a><!--btnMaza-->
+                <img src="images/or.png" width="100" alt="">
+                <a class="btnSpeed btnMaza" id="2" href="javascript:void(0)">SPEED 4G</a><!--btnSpeed-->
             </div><!--mazorspeed_box-->
         </div><!--mazorspeed-->
-    </div><!--bg1-->
+        </div><!--bg1-->
 	<div class="bg2">
         <div class="logo">
             <a href="javascript:void(0)"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" width="78" alt="Zain (Logo)"></a>
@@ -91,6 +84,7 @@ $this->pageTitle=Yii::app()->name;
 					  <select name="Reservation[vanity_id]" id="Reservation_vanity_id" class="select_three" dir="rtl">
                           <option value="">رقم الهاتف</option>
                      </select>
+					 <?php echo $form->dropDownList($model,'reservation_best_time_to_call',array('9am-12'=>'9am-12','12pm-3pm'=>'12pm-3pm','3pm-6pm'=>'3pm-6pm','6pm-8pm'=>'6pm-8pm'),array('dir'=>'rtl')); ?>
 				
                      <?php echo CHtml::submitButton($model->isNewRecord ? 'تم' : 'تم',array('class'=>'next')); ?>
                      <input type="reset" name="" class="reset" value="إلغاء">
@@ -106,9 +100,9 @@ $this->pageTitle=Yii::app()->name;
         </div><!--logo-->
         
         <div class="thankyoubox">
-            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/dil.png" width="420" alt="">
+            <!--<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/dil.png" width="420" alt=""> -->
             <h3>شكراً لك</h3>
-            <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.</p>
+            <p>سيتم التواصل معك خلال ٤٨ ساعة في أيام العمل الرسمية</p>
             
             <a href="javascript:void(0)">مشاركة</a>
         </div><!--thankyoubox-->

@@ -38,16 +38,18 @@ class Reservation extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('vanity_id, reservation_name, reservation_phone, reservation_email, reservation_datetime,city_id,region_id', 'required'),
+			array('vanity_id, reservation_name,reservation_email, reservation_datetime,city_id,region_id', 'required'),
 			array('reservation_email', 'email'),
+			array('reservation_best_time_to_call','length'),
 			array('package_id', 'numerical', 'integerOnly'=>true),
 			array('vanity_id', 'length', 'max'=>20),
 			array('reservation_name', 'length', 'max'=>180),
+			array('reservation_phone','length'),
 			array('reservation_phone', 'numerical','integerOnly'=>true),
 			array('reservation_email', 'length', 'max'=>120),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('reservation_id, vanity_id, package_id, city_id, region_id, reservation_name, reservation_phone, reservation_email, reservation_datetime', 'safe', 'on'=>'search'),
+			array('reservation_id,reservation_best_time_to_call, vanity_id, package_id, city_id, region_id, reservation_name, reservation_phone, reservation_email, reservation_datetime', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -75,6 +77,7 @@ class Reservation extends CActiveRecord
 			'reservation_id' => 'Reservation',
 			'vanity_id' => 'Vanity',
 			'package_id' => 'Package',
+			'reservation_best_time_to_call' =>'Best time to contact',
 			'reservation_name' => 'Name',
 			'reservation_phone' => 'Contact Number',
 			'reservation_email' => 'Email',

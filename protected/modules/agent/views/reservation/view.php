@@ -49,6 +49,6 @@ $this->menu=array(
 		'label' => 'Region',
 		'value' =>$region_name,
 		),
-		'reservation_datetime',
+		'reservation_best_time_to_call',
 	),
 )); ?>
