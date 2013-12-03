@@ -3,18 +3,42 @@
 
 $this->pageTitle=Yii::app()->name;
 ?>
-<div class="bg1">
-        <div class="logo">
+
+       
+       <div class="vwrapperin">
+		<div class="logo">
             <a href="javascript:void(0)"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" width="78" alt="Zain (Logo)"></a>
         </div><!--logo-->
-		<div class="mazorspeed">
-            <div class="mazorspeed_box">
-                <a class="btnMaza" id="1" href="javascript:void(0)">MAZAYA</a><!--btnMaza-->
-                <img src="images/or.png" width="100" alt="">
-                <a class="btnSpeed btnMaza" id="2" href="javascript:void(0)">SPEED 4G</a><!--btnSpeed-->
-            </div><!--mazorspeed_box-->
-        </div><!--mazorspeed-->
-        </div><!--bg1-->
+		<div class="vbox">
+			<div class="vtop">
+				<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/Speed_4G.png" class="vspeed">
+			</div>
+			<div class="vtext">
+				هي الباقة التي عملنا جادين لتقديمها للنخبة، ونسعى بتفاني لنقلك لأعلى مستويات التفرد والتميز في كل وسائل الإتصال وعبر جميع فروعنا ومراكز خدماتنا.
+
+ باقة مزايا ايليت تمنحك خصماً مباشر يساوي 1,500 ريال على كافة الأجهزة الذكية، كما تهديك رقماً مميز وتتيح لك التواصل المجاني واللامحدود على جميع الشبكات المحلية عبر الدقائق والرسائل النصية والبيانات.
+
+ولمعرفة المزيد حول باقة ايليت تفضل بزيارة الرابط التالي <a href="https://www.sa.zain.com/autoforms/portal/site/personal/postpaid/mazayaelite">(لمزيد من التفاصيل)</a>
+			</div>
+			<div class="vbottom">
+				<div class="vbutton" id="1" >(لمزيد من التفاصيل)</div>
+			</div>
+		</div>
+		<div class="vbox">
+			<div class="vtop">
+				<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/MazayaElite.png">
+			</div>
+			<div class="vtext">
+				هي الباقة التي عملنا جادين لتقديمها للنخبة، ونسعى بتفاني لنقلك لأعلى مستويات التفرد والتميز في كل وسائل الإتصال وعبر جميع فروعنا ومراكز خدماتنا.
+
+ باقة مزايا ايليت تمنحك خصماً مباشر يساوي 1,500 ريال على كافة الأجهزة الذكية، كما تهديك رقماً مميز وتتيح لك التواصل المجاني واللامحدود على جميع الشبكات المحلية عبر الدقائق والرسائل النصية والبيانات.
+ ولمعرفة المزيد حول باقة ايليت تفضل بزيارة الرابط التالي <a href="https://www.sa.zain.com/autoforms/portal/site/personal/postpaid/mazayaelite">(لمزيد من التفاصيل)</a>
+			</div>
+			<div class="vbottom">
+				<div class="vbutton" id="2"  >(لمزيد من التفاصيل)</div>
+			</div>
+		</div>
+	</div>
 	<div class="bg2">
         <div class="logo">
             <a href="javascript:void(0)"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" width="78" alt="Zain (Logo)"></a>
@@ -84,7 +108,6 @@ $this->pageTitle=Yii::app()->name;
 					  <select name="Reservation[vanity_id]" id="Reservation_vanity_id" class="select_three" dir="rtl">
                           <option value="">رقم الهاتف</option>
                      </select>
-					 <?php echo $form->dropDownList($model,'reservation_best_time_to_call',array('9am-12'=>'9am-12','12pm-3pm'=>'12pm-3pm','3pm-6pm'=>'3pm-6pm','6pm-8pm'=>'6pm-8pm'),array('dir'=>'rtl')); ?>
 				
                      <?php echo CHtml::submitButton($model->isNewRecord ? 'تم' : 'تم',array('class'=>'next')); ?>
                      <input type="reset" name="" class="reset" value="إلغاء">
@@ -100,7 +123,7 @@ $this->pageTitle=Yii::app()->name;
         </div><!--logo-->
         
         <div class="thankyoubox">
-            <!--<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/dil.png" width="420" alt=""> -->
+            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/dil.png" width="420" alt="">
             <h3>شكراً لك</h3>
             <p>سيتم التواصل معك خلال ٤٨ ساعة في أيام العمل الرسمية</p>
             

@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css" rel="stylesheet" type="text/css">
+<link href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css" rel="stylesheet" type="text/css"><link href="<?php echo Yii::app()->request->baseUrl; ?>/css/stylev2.css" rel="stylesheet" type="text/css">
 
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-1.9.1.min.js"></script>
 <title>Zain</title>
@@ -26,12 +26,14 @@
 <script>
 $(document).ready(function() {
 $('#Reservation_reservation_phone').show();
-	$(".btnMaza").click(function(event) {
+	$(".vbutton").click(function(event) {
 		$('#package_id').val(event.target.id);
+		$('#h1txt').text('SPEED4G');
 		if($('#package_id').val()=='2'){
+		  $('#h1txt').text('MAZAYA');	
 		  $('#Reservation_reservation_phone').hide();
 		}
-		$('#h1txt').text($(this).text());	
+		//$('#h1txt').text($(this).text());	
 		$(".bg2").animate({top:'0px'},600);
 	});
 	$(".next").click(function() {
