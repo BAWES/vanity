@@ -3,8 +3,6 @@
 
 $this->pageTitle=Yii::app()->name;
 ?>
-
-       
        <div class="vwrapperin">
 		<div class="logo">
             <a href="javascript:void(0)"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" width="78" alt="Zain (Logo)"></a>
@@ -35,7 +33,7 @@ $this->pageTitle=Yii::app()->name;
  ولمعرفة المزيد حول باقة ايليت تفضل بزيارة الرابط التالي <a href="https://www.sa.zain.com/autoforms/portal/site/personal/postpaid/mazayaelite">(لمزيد من التفاصيل)</a>
 			</div>
 			<div class="vbottom">
-				<div class="vbutton" id="2"  >(لمزيد من التفاصيل)</div>
+				<div class="vbutton" id="2">(لمزيد من التفاصيل)</div>
 			</div>
 		</div>
 	</div>
@@ -92,7 +90,7 @@ $this->pageTitle=Yii::app()->name;
 					<?php
 					$allCities = new CDbCriteria;
 					$allCities->order = 'city_name ASC';
-					echo  $form->dropDownList($model,'city_id',CHtml::listData(City::model()->findAll($allCities),'city_id','city_name'),
+					echo  $form->dropDownList($model,'city_id',array(),
 					array(
 					'prompt'=>'المدينة',
 					'class'=>'select_two',
@@ -108,6 +106,14 @@ $this->pageTitle=Yii::app()->name;
 					  <select name="Reservation[vanity_id]" id="Reservation_vanity_id" class="select_three" dir="rtl">
                           <option value="">رقم الهاتف</option>
                      </select>
+					<?php
+					$timeing = array('9am-12'=>'9am-12','12-3'=>'12-3','3-6'=>'3-6','6-8pm'=>'6-8pm');
+					echo  $form->dropDownList($model,'reservation_best_time_to_call',$timeing,
+					array(
+					'prompt'=>'أفضل وقت للتواصل',
+					'dir'=>'rtl',
+					));
+					?>
 				
                      <?php echo CHtml::submitButton($model->isNewRecord ? 'تم' : 'تم',array('class'=>'next')); ?>
                      <input type="reset" name="" class="reset" value="إلغاء">
@@ -123,7 +129,7 @@ $this->pageTitle=Yii::app()->name;
         </div><!--logo-->
         
         <div class="thankyoubox">
-            <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/dil.png" width="420" alt="">
+            <!--<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/dil.png" width="420" alt="">-->
             <h3>شكراً لك</h3>
             <p>سيتم التواصل معك خلال ٤٨ ساعة في أيام العمل الرسمية</p>
             
@@ -132,9 +138,31 @@ $this->pageTitle=Yii::app()->name;
 
         
     </div><!--bg3-->
-	
-<script type="text/javascript">
+	<script>
+$(document).ready(function() {
+	$(".vbutton").click(function(event) {
+		$('#package_id').val(event.target.id);
+		$('#h1txt').text('MAZAYA');
+		if($('#package_id').val()=='1'){
+		  $('#h1txt').text('SPEED4G');
+		  $('#Reservation_vanity_id').hide();
+		}else{
+		  $('#Reservation_vanity_id').show();
+		}
+		//$('#h1txt').text($(this).text());	
+		$(".bg2").animate({top:'0px'},600);
+	});
+	$(".next").click(function() {
+	send();
+	});
+$(".reset").click(function() {
+      $('#package_id').val('fuck');
+	$(".bg2").animate({top:'-750px'},600);
+});
 
+});
+</script>
+<script type="text/javascript">
 function send()
 {
 var data=$("#reservation-form").serialize();

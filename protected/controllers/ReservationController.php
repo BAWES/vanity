@@ -28,7 +28,7 @@ class ReservationController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','create'),
+				'actions'=>array('index','view','create','ajaxCreate'),
 				'users'=>array('*'),
 			),
 
@@ -224,16 +224,20 @@ class ReservationController extends Controller
 
 		if(isset($_POST['Reservation']))
 		{
-		    
-			$model->attributes=$_POST['Reservation'];
+		    $model->attributes=$_POST['Reservation'];
 			$model->reservation_datetime = new CDbExpression('NOW()');
 		    $model->package_id = (int) $_REQUEST['package_id'];
+			$model->vanity_id  = isset($_POST['Reservation']['vanity_id']) ? $_POST['Reservation']['vanity_id'] : 0 ;
 			if($model->save()){
 			    $model_vanity=Vanity::model()->findByPk($model->vanity_id);
 				$model_region=Region::model()->findByPk($model->region_id);
 				$model_agent=Agent::model()->findByAttributes(array('region_id'=>$model->region_id));
 				$model_activity = new Activity();
+				if($model->vanity_id!=0){
 				$model_activity->text = 'User '.$model->reservation_name.' reserved number '.$model_vanity->vanity_number.' assigned to agent '.$model_agent->agent_name. ' in area '.$model_region->region_name ;
+				}else{
+				$model_activity->text = 'User '.$model->reservation_name.' selected speed4G package ';
+				}
 				$model_activity->usertype = 'user';
 				$model_activity->datetime = new CDbExpression('NOW()');
 				$model_activity->insert();

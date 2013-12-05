@@ -23,27 +23,5 @@
     
 <div class="clear"></div>
 </div><!--wrapper-->
-<script>
-$(document).ready(function() {
-$('#Reservation_reservation_phone').show();
-	$(".vbutton").click(function(event) {
-		$('#package_id').val(event.target.id);
-		$('#h1txt').text('SPEED4G');
-		if($('#package_id').val()=='2'){
-		  $('#h1txt').text('MAZAYA');	
-		  $('#Reservation_reservation_phone').hide();
-		}
-		//$('#h1txt').text($(this).text());	
-		$(".bg2").animate({top:'0px'},600);
-	});
-	$(".next").click(function() {
-	send();
-	});
-$(".reset").click(function() {
-	$(".bg2").animate({top:'-750px'},600);
-});
-
-});
-</script>
 </body>
 </html>

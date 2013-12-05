@@ -38,7 +38,7 @@ class Reservation extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('vanity_id, reservation_name,reservation_email, reservation_datetime,city_id,region_id', 'required'),
+			array('reservation_name,reservation_email, reservation_datetime,city_id,region_id', 'required'),
 			array('reservation_email', 'email'),
 			array('reservation_best_time_to_call','length'),
 			array('package_id', 'numerical', 'integerOnly'=>true),
@@ -61,10 +61,10 @@ class Reservation extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-                        'region' => array(self::BELONGS_TO, 'Region', 'region_id'),
+            'region' => array(self::BELONGS_TO, 'Region', 'region_id'),
 			'vanity' => array(self::BELONGS_TO, 'Vanity', 'vanity_id'),
 			'package' => array(self::BELONGS_TO, 'Package', 'package_id'),
-                        'city' => array(self::BELONGS_TO, 'City', 'city_id'),
+            'city' => array(self::BELONGS_TO, 'City', 'city_id'),
 		);
 	}
 
