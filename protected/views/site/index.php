@@ -103,7 +103,7 @@ $this->pageTitle=Yii::app()->name;
 					)));
 					?>
 					
-					  <select name="Reservation[vanity_id]" id="Reservation_vanity_id" class="select_three" dir="rtl">
+					  <select  name="Reservation[vanity_id]" id="Reservation_vanity_id" class="select_three" dir="rtl">
                           <option value="">رقم الهاتف</option>
                      </select>
 					<?php
@@ -140,6 +140,7 @@ $this->pageTitle=Yii::app()->name;
     </div><!--bg3-->
 	<script>
 $(document).ready(function() {
+
 	$(".vbutton").click(function(event) {
 		$('#package_id').val(event.target.id);
 		$('#h1txt').text('MAZAYA');
@@ -149,6 +150,25 @@ $(document).ready(function() {
 		}else{
 		  $('#Reservation_vanity_id').show();
 		}
+		$("#Reservation_city_id").hide();
+        $("#Reservation_vanity_id").hide();
+		
+		$("#Reservation_region_id").change(function()
+        {
+		  $("#Reservation_city_id").show();
+		  
+		});
+		$("#Reservation_city_id").change(function()
+        {
+		  $("#Reservation_vanity_id").show();
+		  if($('#package_id').val()=='1'){
+		  $('#h1txt').text('SPEED4G');
+		  $('#Reservation_vanity_id').hide();
+		}else{
+		  $('#Reservation_vanity_id').show();
+		}
+	
+		});
 		//$('#h1txt').text($(this).text());	
 		$(".bg2").animate({top:'0px'},600);
 	});
@@ -156,8 +176,7 @@ $(document).ready(function() {
 	send();
 	});
 $(".reset").click(function() {
-      $('#package_id').val('fuck');
-	$(".bg2").animate({top:'-750px'},600);
+    $(".bg2").animate({top:'-750px'},600);
 });
 
 });
@@ -175,6 +194,7 @@ if(data==='validation'){
 return false;
 }else{
 $(".bg3").animate({top:'0px'},600);
+return true;
 }
 },
 error: function(data) { // if error occured

@@ -186,7 +186,7 @@ class ReservationController extends Controller
 	**/
 	public function actionDynamiccities()
 	{
-			$region_id = $_POST['region_id'] ;
+	        $region_id = $_POST['region_id'] ;
 			$city_id = City::model()->findAll(array('select'=>'city_id,city_name','condition'=>"region_id='$region_id'"));
 			$data = CHtml::listData($city_id,'city_id','city_name');
 			echo CHtml::tag('option',array('value' => ''),CHtml::encode('المدينة'),true);

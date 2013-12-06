@@ -44,7 +44,7 @@ class Reservation extends CActiveRecord
 			array('package_id', 'numerical', 'integerOnly'=>true),
 			array('vanity_id', 'length', 'max'=>20),
 			array('reservation_name', 'length', 'max'=>180),
-			array('reservation_phone','length'),
+			array('reservation_phone','required'),
 			array('reservation_phone', 'numerical','integerOnly'=>true),
 			array('reservation_email', 'length', 'max'=>120),
 			// The following rule is used by search().
