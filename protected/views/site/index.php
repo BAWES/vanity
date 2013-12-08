@@ -11,26 +11,26 @@ $this->pageTitle=Yii::app()->name;
 			<div class="vtop">
 				<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/Speed_4G.png" class="vspeed">
 			</div>
-			<div class="vtext">
+			<div class="vtext" style='direction:rtl'>
 				توفر سبيد 4G باقات إنترنت بسرعة عالية مدعومة بتقنية الجيل الرابع  LTE تدعم سرعات إنترنت تصل إلى 10 مرات أكثر من الجيل الثالث مهما كان الموقع او نوعية الجهاز المستخدم، توفرسبيد 4G افضل تجربة إنترنت، مثالية لالعاب الانترنت، والبث المباشر بتقنية الـ HD، اختر إحدى باقات زين سبيد 4G مع الخيارات المتعددة للاجهزة لتستخدمها على الكمبيوتر الشخصي أو الكمبيوتر المحمول أو أجهزة الكمبيوتر اللوحية.<br>
-				ولمعرفة المزيد حول سبيد 4G تفضل بزيارة الرابط التالي <a href="https://www.sa.zain.com/autoforms/portal/site/personal/broadband">(لمزيد من التفاصيل)</a>
+				ولمعرفة المزيد حول سبيد 4G تفضل بزيارة الرابط التالي <a target='_blank' href="https://www.sa.zain.com/autoforms/portal/site/personal/broadband">(لمزيد من التفاصيل)</a>
 			</div>
 			<div class="vbottom">
-				<div class="vbutton" id="1" >(لمزيد من التفاصيل)</div>
+				<div class="vbutton" id="1" >حجز</div>
 			</div>
 		</div>
 		<div class="vbox">
 			<div class="vtop">
 				<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/MazayaElite.png">
 			</div>
-			<div class="vtext" style="height:238px;">
+			<div class="vtext" style="height:238px; direction:rtl;">
 				هي الباقة التي عملنا جادين لتقديمها للنخبة، ونسعى بتفاني لنقلك لأعلى مستويات التفرد والتميز في كل وسائل الإتصال وعبر جميع فروعنا ومراكز خدماتنا.
 
  باقة مزايا ايليت تمنحك خصماً مباشر يساوي 1,500 ريال على كافة الأجهزة الذكية، كما تهديك رقماً مميز وتتيح لك التواصل المجاني واللامحدود على جميع الشبكات المحلية عبر الدقائق والرسائل النصية والبيانات.
- ولمعرفة المزيد حول باقة ايليت تفضل بزيارة الرابط التالي <a href="https://www.sa.zain.com/autoforms/portal/site/personal/postpaid/mazayaelite">(لمزيد من التفاصيل)</a>
+ ولمعرفة المزيد حول باقة ايليت تفضل بزيارة الرابط التالي <a target='_blank' href="https://www.sa.zain.com/autoforms/portal/site/personal/postpaid/mazayaelite">(لمزيد من التفاصيل)</a>
 			</div>
 			<div class="vbottom">
-				<div class="vbutton" id="2">(لمزيد من التفاصيل)</div>
+				<div class="vbutton" id="2">حجز</div>
 			</div>
 		</div>
 	</div>
