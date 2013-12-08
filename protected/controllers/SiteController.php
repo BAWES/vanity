@@ -35,7 +35,7 @@ class SiteController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Reservation']))
+		/*if(isset($_POST['Reservation']))
 		{
 			$model->attributes=$_POST['Reservation'];
 			
@@ -46,7 +46,7 @@ class SiteController extends Controller
 			    Vanity::model()->updateByPk($model->vanity_id,array("vanity_status"=>'reserved')); 
 				$this->redirect(array('view','id'=>$model->reservation_id));
 			}	
-		}
+		}*/
 		// fetching available vanity number with related agent
 		$vanityDropdown = CHtml::listData(Vanity::model()->findAll('vanity_status="show"'),'vanity_id', 'vanity_number');$regionDropdown = CHtml::listData(Region::model()->findAll(),'region_id', 'region_name');
 		$this->render('index',array(
