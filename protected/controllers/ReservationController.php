@@ -204,7 +204,7 @@ class ReservationController extends Controller
 	        $postCity_id = $_POST['city_id'];
 	        $region = City::model()->find(array('select'=>'region_id','condition'=>"city_id=".$postCity_id));
  		    $region_id = $region->region_id;
-			$sql = "select a.vanity_id,a.vanity_number from vanity a join agent b on b.agent_id = a.agent_id and b.region_id = ".$region_id." AND a.vanity_status = 'show'";
+			$sql = "select a.vanity_id,a.vanity_number from vanity a join agent b on b.agent_id = a.agent_id and b.region_id = ".$region_id." AND a.vanity_status = 'show' AND a.vanity_id <> 0";
 			$command=Yii::app()->db->createCommand($sql);
             $results=$command->query();
 			$data = CHtml::listData($results,'vanity_id','vanity_number');
