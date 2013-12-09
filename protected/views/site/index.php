@@ -7,11 +7,12 @@ $this->pageTitle=Yii::app()->name;
 		<div class="logo">
             <a href="javascript:void(0)"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" width="78" alt="Zain (Logo)"></a>
         </div><!--logo-->
+		<div style="padding-left:18px;">
 		<div class="vbox">
 			<div class="vtop">
 				<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/Speed_4G.png" class="vspeed">
 			</div>
-			<div class="vtext" style='direction:rtl'>
+			<div class="vtext" style='height:259px;direction:rtl'>
 				توفر سبيد 4G باقات إنترنت بسرعة عالية مدعومة بتقنية الجيل الرابع  LTE تدعم سرعات إنترنت تصل إلى 10 مرات أكثر من الجيل الثالث مهما كان الموقع او نوعية الجهاز المستخدم، توفرسبيد 4G افضل تجربة إنترنت، مثالية لالعاب الانترنت، والبث المباشر بتقنية الـ HD، اختر إحدى باقات زين سبيد 4G مع الخيارات المتعددة للاجهزة لتستخدمها على الكمبيوتر الشخصي أو الكمبيوتر المحمول أو أجهزة الكمبيوتر اللوحية.<br>
 				ولمعرفة المزيد حول سبيد 4G تفضل بزيارة الرابط التالي <a target='_blank' href="https://www.sa.zain.com/autoforms/portal/site/personal/broadband">(لمزيد من التفاصيل)</a>
 			</div>
@@ -23,7 +24,7 @@ $this->pageTitle=Yii::app()->name;
 			<div class="vtop">
 				<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/MazayaElite.png">
 			</div>
-			<div class="vtext" style="height:238px; direction:rtl;">
+			<div class="vtext" style="height:259px; direction:rtl;">
 				هي الباقة التي عملنا جادين لتقديمها للنخبة، ونسعى بتفاني لنقلك لأعلى مستويات التفرد والتميز في كل وسائل الإتصال وعبر جميع فروعنا ومراكز خدماتنا.
 
  باقة مزايا ايليت تمنحك خصماً مباشر يساوي 1,500 ريال على كافة الأجهزة الذكية، كما تهديك رقماً مميز وتتيح لك التواصل المجاني واللامحدود على جميع الشبكات المحلية عبر الدقائق والرسائل النصية والبيانات.
@@ -33,6 +34,7 @@ $this->pageTitle=Yii::app()->name;
 				<div class="vbutton" id="2">حجز</div>
 			</div>
 		</div>
+	<div>	
 	</div>
 	<div class="bg2">
         <div class="logo">
@@ -42,7 +44,8 @@ $this->pageTitle=Yii::app()->name;
         <div class="form_wrapper">
             <div class="formbg">
                 <h1 id="h1txt"></h1>
-                
+               <!-- <div id='imagetab'  >
+				<img style="width:171px" src="<?php echo Yii::app()->request->baseUrl; ?>/images/MazayaElite.png"></div> -->
 				<?php $form=$this->beginWidget('CActiveForm', array(
 				'id'=>'reservation-form',
 				// Please note: When you enable ajax validation, make sure the corresponding
@@ -52,7 +55,7 @@ $this->pageTitle=Yii::app()->name;
 				'enableAjaxValidation'=>true,
 				   'clientOptions'=>array(
 					'validateOnSubmit'=>true,
-					'validateOnChange'=>false,
+					'validateOnChange'=>true,
 					'validateOnType'=>false,
 					),
 					'enableClientValidation'=>true,
