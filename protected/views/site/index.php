@@ -3,39 +3,59 @@
 
 $this->pageTitle=Yii::app()->name;
 ?>
-       <div class="vwrapperin">
-		<div class="logo">
-            <a href="javascript:void(0)"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" width="78" alt="Zain (Logo)"></a>
-        </div><!--logo-->
-		<div style="padding-left:18px;">
-		<div class="vbox">
-			<div class="vtop">
-				<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/Speed_4G.png" class="vspeed">
-			</div>
-			<div class="vtext" style='height:259px;direction:rtl'>
-				توفر سبيد 4G باقات إنترنت بسرعة عالية مدعومة بتقنية الجيل الرابع  LTE تدعم سرعات إنترنت تصل إلى 10 مرات أكثر من الجيل الثالث مهما كان الموقع او نوعية الجهاز المستخدم، توفرسبيد 4G افضل تجربة إنترنت، مثالية لالعاب الانترنت، والبث المباشر بتقنية الـ HD، اختر إحدى باقات زين سبيد 4G مع الخيارات المتعددة للاجهزة لتستخدمها على الكمبيوتر الشخصي أو الكمبيوتر المحمول أو أجهزة الكمبيوتر اللوحية.<br>
-				ولمعرفة المزيد حول سبيد 4G تفضل بزيارة الرابط التالي <a target='_blank' href="https://www.sa.zain.com/autoforms/portal/site/personal/broadband">(لمزيد من التفاصيل)</a>
-			</div>
-			<div class="vbottom">
-				<div class="vbutton" id="1" >حجز</div>
-			</div>
-		</div>
-		<div class="vbox">
-			<div class="vtop">
-				<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/MazayaElite.png">
-			</div>
-			<div class="vtext" style="height:259px; direction:rtl;">
-				هي الباقة التي عملنا جادين لتقديمها للنخبة، ونسعى بتفاني لنقلك لأعلى مستويات التفرد والتميز في كل وسائل الإتصال وعبر جميع فروعنا ومراكز خدماتنا.
 
- باقة مزايا ايليت تمنحك خصماً مباشر يساوي 1,500 ريال على كافة الأجهزة الذكية، كما تهديك رقماً مميز وتتيح لك التواصل المجاني واللامحدود على جميع الشبكات المحلية عبر الدقائق والرسائل النصية والبيانات.
- ولمعرفة المزيد حول باقة ايليت تفضل بزيارة الرابط التالي <a target='_blank' href="https://www.sa.zain.com/autoforms/portal/site/personal/postpaid/mazayaelite">(لمزيد من التفاصيل)</a>
-			</div>
-			<div class="vbottom">
-				<div class="vbutton" id="2">حجز</div>
-			</div>
-		</div>
-	<div>	
-	</div>
+    <div class="v3top">
+        <div class="v3topSub">
+            <div class="v3topLogo">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logov3.png" alt="" width="103" height="142">
+            </div>
+            
+            <div class="v3topData">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/mazayav3.png" alt="" height="107" width="379">
+                <p dir='rtl' lang='ar'>
+                    هي الباقة التي عملنا جادين لتقديمها للنخبة، ونسعى بتفاني لنقلك لأعلى
+                    مستويات التفرد والتميز في كل وسائل الإتصال وعبر جميع فروعنا ومراكز
+                    خدماتنا. باقة مزايا ايليت تمنحك خصماً مباشر يساوي 1,500 ريال على كافة
+                    الأجهزة الذكية، كما تهديك رقماً مميز وتتيح لك التواصل المجاني
+                    واللامحدود على جميع الشبكات المحلية عبر الدقائق والرسائل النصية
+                    والبيانات. ولمعرفة المزيد حول الخصم المباشر للأجهزة،
+                    تفضل بزيارة الرابط التالي (لمزيد من التفاصيل)
+                </p>
+            </div>
+
+            <div class="v3clearfix">&nbsp;</div>
+            
+            <a class="linked" id="2" href="javascript:void(0)" dir='rtl' lang='ar'>
+                احجز رقمك!
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="v3mid">
+
+        <div class="v3midSub">
+            <div class="v3midData">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/speedv3.png" alt="" height="41" width="167">
+                <p dir='rtl' lang='ar'>
+                    تمتع بإنترنت غير محدود أينما كنت مع أفضل مشغل 4G في المملكة،
+                    واحصل على أحدث أجهزة سبيد 4G مجاناً، كل ذلك ابتداء من 100 ريال شهرياً.
+                    تعد تقنية الجيل الرابع 4G من أحدث تقنيات الاتصالات حول العالم،
+                    حيث توفر سرعة هائلة لنقل بيانات عبر الشبكة تصل حتى 150 ميجابت
+                    في الثانية  لتوفر بذلك تجربة إنترنت مثالية، سواء لألعاب الإنترنت،
+                    أو مشاهدة البث المباشر بتقنية الـ HD، أو تحميل الملفات بسرعة فائقة.
+                    تفضل بزيارة الرابط التالي (لمزيد من التفاصيل)
+                </p>
+            </div>
+            <div class="v3clearfix">&nbsp;</div>
+            <a class="linked" id="1" href="javascript:void(0)" dir='rtl' lang='ar'>
+                احجز باقتك!
+            </a>
+        </div>
+
+    </div>
+
 	<div class="bg2">
         <div class="logo">
             <a href="javascript:void(0)"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/logo.png" width="78" alt="Zain (Logo)"></a>
@@ -141,7 +161,7 @@ $this->pageTitle=Yii::app()->name;
 	<script>
 $(document).ready(function() {
 
-	$(".vbutton").click(function(event) {
+	$(".linked").click(function(event) {
 		$('#package_id').val(event.target.id);
 		$('#h1txt').text('MAZAYA');
 		if($('#package_id').val()=='1'){

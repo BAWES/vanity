@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Contain floats: h5bp.v3com/q */
+
+.v3clearfix {
+    *zoom: 1;
+}
+
+.v3clearfix:before,
+.v3clearfix:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+.v3clearfix:after {
+    clear: both;
+}
+
+.v3wrapper {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+}
+
+.v3top {
+    width: 800px;
+    max-width: 800px;
+    height: 425px;
+    margin: 0 auto;
+    background: url("../images/topv3.jpg") repeat-x 0 0;
+}
+
+.v3topSub {
+    width: 800px;
+    height: 425px;
+    margin: 0 auto;
+}
+
+.v3topLogo {
+    float: left;
+    width: 105px;
+    height: 145px;
+    margin: 25px 0 0 25px;
+}
+
+.v3topData {
+    float: right;
+    width: 500px;
+    height: 260px;
+    margin: 100px 25px 0 0;
+}
+
+.v3topData img {
+    width: 275px;
+    height: 75px;
+    float: right;
+}
+
+.v3topData p {
+    color: #fff;
+    float: right;
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.v3topSub a {
+    float: left;
+    width: 120px;
+    height: 34px;
+    background: #F8E800;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 10px;
+    margin-left: 25px;
+    font-size: 18px;
+}
+.v3mid {
+    width: 800px;
+    max-width: 800px;
+    height: 315px;
+    margin: 0 auto;
+    background: url("../images/midv3.jpg") repeat 0 0;
+}
+
+.v3midSub {
+    width: 800px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.v3midData {
+    float: right;
+    width: 500px;
+    height: 260px;
+    margin: 5px 25px 0 0;
+}
+
+.v3midData img {
+    width: 275px;
+    height: 75px;
+    float: right;
+}
+
+.v3midData p {
+    color: #000;
+    float: right;
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+.v3midData .v3cct {
+    color: #ff0;
+}
+
+.v3midSub a {
+    float: left;
+    color: #fff;
+    width: 120px;
+    height: 34px;
+    background: #EC098D;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 10px;
+    margin-left: 25px;
+    font-size: 18px;
+}
+
+.v3bottom {
+    width: 800px;
+    max-width: 800px;
+    height: 39px;
+    margin: 0 auto;
+    background-color: #EC098D;
+}
+
+.v3bottomSub {
+    width: 800px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.v3bottomSub p.v3left {
+    float: left;
+    color: #fff;
+    font-size: 22px;
+    margin-top: 7px;
+    margin-left: 25px;
+}
+
+.v3bottomSub p.v3right{
+    float: right;
+    color: #fff;
+    font-size: 22px;
+    margin-top: 7px;
+    margin-right: 25px;
+}
