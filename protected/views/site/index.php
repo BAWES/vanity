@@ -63,9 +63,9 @@ $this->pageTitle=Yii::app()->name;
         
         <div class="form_wrapper">
             <div class="formbg">
-                <h1 id="h1txt"></h1>
-               <!-- <div id='imagetab'  >
-				<img style="width:171px" src="<?php echo Yii::app()->request->baseUrl; ?>/images/MazayaElite.png"></div> -->
+                <!--<h1 id="h1txt"></h1>-->
+                <div id='imagetab' >
+				<img id="dynamic_img" style="width:171px" src=""></div>
 				<?php $form=$this->beginWidget('CActiveForm', array(
 				'id'=>'reservation-form',
 				// Please note: When you enable ajax validation, make sure the corresponding
@@ -163,9 +163,11 @@ $(document).ready(function() {
 
 	$(".linked").click(function(event) {
 		$('#package_id').val(event.target.id);
-		$('#h1txt').text('MAZAYA');
+		//$('#h1txt').text('MAZAYA');
+		$("#dynamic_img").attr('src', '<?php echo Yii::app()->request->baseUrl; ?>/images/MazayaElite.png');
 		if($('#package_id').val()=='1'){
-		  $('#h1txt').text('SPEED4G');
+		 // $('#h1txt').text('SPEED4G');
+		  $("#dynamic_img").attr('src', '<?php echo Yii::app()->request->baseUrl; ?>/images/Speed_4G.png');
 		  $('#Reservation_vanity_id').hide();
 		}else{
 		  $('#Reservation_vanity_id').show();
@@ -182,7 +184,8 @@ $(document).ready(function() {
         {
 		  $("#Reservation_vanity_id").show();
 		  if($('#package_id').val()=='1'){
-		  $('#h1txt').text('SPEED4G');
+		 // $('#h1txt').text('SPEED4G');
+		  $("#dynamic_img").attr('src', '<?php echo Yii::app()->request->baseUrl; ?>/images/Speed_4G.png');
 		  $('#Reservation_vanity_id').hide();
 		}else{
 		  $('#Reservation_vanity_id').show();
