@@ -134,4 +134,17 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
+	public function actionFbshared(){
+	$model=new Reservation;
+	if($_REQUEST['package']=='1'){
+	$text = "Sucessfully selected  Package Speed4G";
+	}
+	if($_REQUEST['van']!='' ){
+	$vanity = Vanity::model()->findByPK($_REQUEST['van']);
+    
+	$text = "Sucessfully select vanity ".$vanity->vanity_number . " With package Mazaya";
+	}
+	 
+	 $this->render('fbshared',array('text'=>$text));
+	}
 }

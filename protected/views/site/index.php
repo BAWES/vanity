@@ -153,7 +153,8 @@ $this->pageTitle=Yii::app()->name;
             <h3>شكراً لك</h3>
             <p>سيتم التواصل معك خلال ٤٨ ساعة في أيام العمل الرسمية</p>
             
-            <a href="javascript:void(0)">مشاركة</a>
+            <a id='share' href="">مشاركة</a>
+			
         </div><!--thankyoubox-->
 
         
@@ -216,6 +217,11 @@ success:function(data){
 if(data==='validation'){
 return false;
 }else{
+if($('#package_id').val()=='2'){
+$("#share").attr('href', '<?php echo Yii::app()->request->baseUrl; ?>/index.php/site/fbshared/van/'+$("#Reservation_vanity_id").val()+'/package/2');
+}else{
+$("#share").attr('href', '<?php echo Yii::app()->request->baseUrl; ?>/index.php/site/fbshared/package/1');
+}
 $(".bg3").animate({top:'0px'},600);
 return true;
 }
