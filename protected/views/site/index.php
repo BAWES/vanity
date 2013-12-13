@@ -152,7 +152,7 @@ $this->pageTitle=Yii::app()->name;
             <!--<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/dil.png" width="420" alt="">-->
             <h3>شكراً لك</h3>
             <p>سيتم التواصل معك خلال ٤٨ ساعة في أيام العمل الرسمية</p>
-            
+            <p id="sucessmsg"></p>
             <a id='share' href="">مشاركة</a>
 			
         </div><!--thankyoubox-->
@@ -218,9 +218,12 @@ if(data==='validation'){
 return false;
 }else{
 if($('#package_id').val()=='2'){
-$("#share").attr('href', '<?php echo Yii::app()->request->baseUrl; ?>/index.php/site/fbshared/van/'+$("#Reservation_vanity_id").val()+'/package/2');
+ var vanity = $('#Reservation_vanity_id').find('option:selected').text();
+ $("#sucessmsg").text('Sucessfully selected vanity '+vanity+' with package Mazaya');
+$("#share").attr('href', 'http://www.facebook.com/sharer.php?s=100&p[title]=Selected vanity '+vanity+'&p[summary]=sucessfully selected vanity '+vanity+' with mazaya package&p[url]=http://zainghaliahapps.com/vanity/index.php&p[images[0]=http://zainghaliahapps.com/vanity/images/logov3.png');
 }else{
-$("#share").attr('href', '<?php echo Yii::app()->request->baseUrl; ?>/index.php/site/fbshared/package/1');
+ $("#sucessmsg").text('Sucessfully selected SPEED4G');
+$("#share").attr('href', 'http://www.facebook.com/sharer.php?s=100&p[title]=Selected SPEED 4G PACKAGE&p[summary]=sucessfully selected SPEED 4G PACKAGE&p[url]=http://zainghaliahapps.com/vanity/index.php&p[images[0]=http://zainghaliahapps.com/vanity/images/logov3.png');
 }
 $(".bg3").animate({top:'0px'},600);
 return true;
