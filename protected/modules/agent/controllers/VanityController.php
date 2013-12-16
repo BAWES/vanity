@@ -125,6 +125,21 @@ class VanityController extends Controller
 	/**
 	 * Lists all sold number.
 	 */
+	 
+	/**
+     * Cron job
+    */ 
+	public function actionCronbackshow()
+	{
+
+		$soldStatus=Vanity::model()->updateAll(array(        
+                                        'vanity_status'=>"show"
+                                         ),"vanity_status=>'reserved'");
+
+		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+		$this->redirect(array('index'));
+	}	
 	public function actionSold()
 	{
 	    
