@@ -29,8 +29,9 @@ class AgentModule extends CWebModule {
             $route = $controller->id . '/' . $action->id;
 
             $publicPages = array(
-                'default/login',
-                'default/error',
+                'default/login/',
+                'default/error/',
+				'vanity/cronbackshow',
             );
             if (Yii::app()->user->isGuest && !in_array($route, $publicPages)) {
                 Yii::app()->getModule('agent')->user->loginRequired();
