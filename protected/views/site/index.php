@@ -19,7 +19,11 @@ $this->pageTitle=Yii::app()->name;
                     الأجهزة الذكية، كما تهديك رقماً مميز وتتيح لك التواصل المجاني
                     واللامحدود على جميع الشبكات المحلية عبر الدقائق والرسائل النصية
                     والبيانات. ولمعرفة المزيد حول الخصم المباشر للأجهزة،
-                    تفضل بزيارة الرابط التالي (لمزيد من التفاصيل)
+                    تفضل بزيارة الرابط التالي 
+                    
+                    <a href='https://www.sa.zain.com/autoforms/portal/site/personal/postpaid/mazayaelite' target='_blank'  style="display:inline; background:none; color:white; width:250px;">
+                    (اضغط لمزيد من التفاصيل)
+                    </a>
                 </p>
             </div>
 
@@ -39,13 +43,18 @@ $this->pageTitle=Yii::app()->name;
             <div class="v3midData">
                 <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/speedv3.png" alt="" height="41" width="167">
                 <p dir='rtl' lang='ar'>
+                    
                     تمتع بإنترنت غير محدود أينما كنت مع أفضل مشغل 4G في المملكة،
                     واحصل على أحدث أجهزة سبيد 4G مجاناً، كل ذلك ابتداء من 100 ريال شهرياً.
                     تعد تقنية الجيل الرابع 4G من أحدث تقنيات الاتصالات حول العالم،
                     حيث توفر سرعة هائلة لنقل بيانات عبر الشبكة تصل حتى 150 ميجابت
                     في الثانية  لتوفر بذلك تجربة إنترنت مثالية، سواء لألعاب الإنترنت،
                     أو مشاهدة البث المباشر بتقنية الـ HD، أو تحميل الملفات بسرعة فائقة.
-                    تفضل بزيارة الرابط التالي (لمزيد من التفاصيل)
+                    تفضل بزيارة الرابط التالي 
+                    <a href="https://www.sa.zain.com/autoforms/portal/site/personal/broadband" target='_blank' style="display:inline; background:none; color:black; width:250px;">
+(اضغط لمزيد من التفاصيل)
+               
+                    </a>
                 </p>
             </div>
             <div class="v3clearfix">&nbsp;</div>
